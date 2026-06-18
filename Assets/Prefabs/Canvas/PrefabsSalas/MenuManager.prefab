@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4397694049791069721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6128642934533417744}
+  - component: {fileID: 3201687552803597263}
+  - component: {fileID: 978717857412070141}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6128642934533417744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397694049791069721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3201687552803597263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397694049791069721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b921b01223419f49b8f5f72842dd7bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelMenu: {fileID: 0}
+  panelConfiguraciones: {fileID: 0}
+  panelJuego: {fileID: 0}
+  panelSalas: {fileID: 0}
+  panelSalaJuego: {fileID: 0}
+  inputNombreJugador: {fileID: 0}
+  inputNombreSala: {fileID: 0}
+  textoEstadoGlobal: {fileID: 0}
+  roomItemPrefab: {fileID: 0}
+  roomListContent: {fileID: 0}
+  contentEquipo1: {fileID: 0}
+  contentEquipo2: {fileID: 0}
+  botonIniciarPartida: {fileID: 0}
+  todosLosMapas:
+  - nombreAMostrar: 
+    nombreEscena: 
+    imagenMapa: {fileID: 0}
+  - nombreAMostrar: 
+    nombreEscena: 
+    imagenMapa: {fileID: 0}
+  - nombreAMostrar: 
+    nombreEscena: 
+    imagenMapa: {fileID: 0}
+  uiImagenOpcion1: {fileID: 0}
+  uiNombreOpcion1: {fileID: 0}
+  textoVotosMapa1: {fileID: 0}
+  uiImagenOpcion2: {fileID: 0}
+  uiNombreOpcion2: {fileID: 0}
+  textoVotosMapa2: {fileID: 0}
+--- !u!114 &978717857412070141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397694049791069721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
