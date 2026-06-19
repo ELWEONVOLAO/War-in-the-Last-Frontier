@@ -6,18 +6,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 
-
 public class MenuManager : MonoBehaviourPunCallbacks
 {
-    // ==========================================
-    // --- CLASE PARA CONFIGURAR LOS MAPAS ---
-    // ==========================================
     [System.Serializable]
     public class DatosMapa
     {
-        public string nombreAMostrar; // Ej: "Desierto", "Estación Espacial"
-        public string nombreEscena;   // Ej: "EscenaMapa1" (Debe ser exacto al Build Settings)
-        public Sprite imagenMapa;     // La foto que aparecerá en la votación
+        public string nombreAMostrar;
+        public string nombreEscena;
+        public Sprite imagenMapa;
     }
 
     [Header("--- NAVEGACION DE PANELES ---")]
@@ -27,10 +23,13 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public GameObject panelSalas;
     public GameObject panelSalaJuego;
 
-    [Header("--- UI REFERENCIAS (Inputs) ---")]
+    [Header("--- UI REFERENCIAS (Inputs y Textos) ---")]
     public TMP_InputField inputNombreJugador;
     public TMP_InputField inputNombreSala;
     public TextMeshProUGUI textoEstadoGlobal;
+
+    // ---> ¡AQUÍ ESTÁ TU NUEVA VARIABLE! <---
+    public TextMeshProUGUI textoNombreSalaActual;
 
     [Header("--- LISTA DINAMICA DE SALAS ---")]
     public GameObject roomItemPrefab;
@@ -42,11 +41,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public Transform contentEquipo2;
     public Button botonIniciarPartida;
 
-    // ==========================================
-    // --- SISTEMA DE VOTACION (MODIFICADO) ---
-    // ==========================================
     [Header("--- CONFIGURACIÓN DE MAPAS ---")]
-    public DatosMapa[] todosLosMapas; // Aquí pondrás tus 3 mapas en el Inspector
+    public DatosMapa[] todosLosMapas;
 
     [Header("UI Votación - Opción 1")]
     public Image uiImagenOpcion1;
@@ -58,14 +54,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI uiNombreOpcion2;
     public TextMeshProUGUI textoVotosMapa2;
 
-    // Variables internas
     private int indiceMapa1 = -1;
     private int indiceMapa2 = -1;
     private int slotsPorEquipo = 5;
     private Dictionary<int, TextMeshProUGUI> pingLabels = new Dictionary<int, TextMeshProUGUI>();
     private Coroutine pingCoroutine;
 
-    // --- COLORES DE SLOT ---
     private static readonly Color colorSlotOcupado = new Color(0.15f, 0.15f, 0.20f, 1f);
     private static readonly Color colorSlotVacio = new Color(0.08f, 0.08f, 0.10f, 0.8f);
     private static readonly Color colorNombreJugador = new Color(0.90f, 0.90f, 1.00f, 1f);
@@ -152,9 +146,14 @@ public class MenuManager : MonoBehaviourPunCallbacks
         panelSalas.SetActive(false);
         panelSalaJuego.SetActive(true);
 
+        // ---> ¡NUEVO: AQUÍ MOSTRAMOS EL NOMBRE DE LA SALA! <---
+        if (textoNombreSalaActual != null)
+        {
+            textoNombreSalaActual.text = "SALA: " + PhotonNetwork.CurrentRoom.Name;
+        }
+
         slotsPorEquipo = Mathf.Max(1, PhotonNetwork.CurrentRoom.MaxPlayers / 2);
 
-        // --- SELECCIÓN ALEATORIA DE MAPAS (Solo el Host lo hace) ---
         if (PhotonNetwork.IsMasterClient)
         {
             if (!PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("MapaOp1"))
@@ -163,9 +162,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
             }
         }
 
-        // Leemos los mapas seleccionados de la red y actualizamos las imágenes
         ActualizarMapasEnPantalla();
-
         ActualizarListaJugadoresUI();
         ContarVotosUI();
         RevisarSalaLlena();
@@ -175,15 +172,13 @@ public class MenuManager : MonoBehaviourPunCallbacks
         pingCoroutine = StartCoroutine(RefrescarPingPeriodico());
     }
 
-    // Elige 2 mapas distintos y los guarda en la Room
     void SeleccionarMapasAlAzar()
     {
-        if (todosLosMapas.Length < 2) return; // Seguridad
+        if (todosLosMapas.Length < 2) return;
 
         int index1 = Random.Range(0, todosLosMapas.Length);
         int index2;
 
-        // Aseguramos que no se repita el mapa
         do
         {
             index2 = Random.Range(0, todosLosMapas.Length);
@@ -196,7 +191,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.SetCustomProperties(mapasProperties);
     }
 
-    // Lee los índices de la sala y pone las imágenes correctas
     void ActualizarMapasEnPantalla()
     {
         if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("MapaOp1"))
@@ -391,7 +385,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        // Si el Host eligió los mapas, actualizamos la pantalla para los demás jugadores
         if (propertiesThatChanged.ContainsKey("MapaOp1") || propertiesThatChanged.ContainsKey("MapaOp2"))
         {
             ActualizarMapasEnPantalla();
@@ -413,7 +406,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void VotarPorMapa(int indiceVoto) // 1 para la primera imagen, 2 para la segunda
+    public void VotarPorMapa(int indiceVoto)
     {
         ExitGames.Client.Photon.Hashtable voto = new ExitGames.Client.Photon.Hashtable();
         voto["VotoMapa"] = indiceVoto;
@@ -466,31 +459,27 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     void CargarMapaGanador()
     {
-        // Relectura defensiva de los índices
-        var props = PhotonNetwork.CurrentRoom.CustomProperties;
-        if (props.ContainsKey("MapaOp1")) indiceMapa1 = (int)props["MapaOp1"];
-        if (props.ContainsKey("MapaOp2")) indiceMapa2 = (int)props["MapaOp2"];
-
-        if (indiceMapa1 < 0 || indiceMapa2 < 0) return; // seguridad
-
         int votosOpcion1 = 0, votosOpcion2 = 0;
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             if (p.CustomProperties.ContainsKey("VotoMapa"))
             {
                 if ((int)p.CustomProperties["VotoMapa"] == 1) votosOpcion1++;
-                else votosOpcion2++;
+                else if ((int)p.CustomProperties["VotoMapa"] == 2) votosOpcion2++;
             }
         }
 
         int indiceGanador = (votosOpcion1 >= votosOpcion2) ? indiceMapa1 : indiceMapa2;
-        PhotonNetwork.LoadLevel(todosLosMapas[indiceGanador].nombreEscena);
+        string nombreEscenaCargar = todosLosMapas[indiceGanador].nombreEscena;
+
+        PhotonNetwork.LoadLevel(nombreEscenaCargar);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message) { }
     public override void OnJoinRoomFailed(short returnCode, string message) { }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
+        // Si fallas al unirte a una aleatoria, Photon crea una con este nombre generado al azar
         PhotonNetwork.CreateRoom("Sala_" + Random.Range(1000, 10000), new RoomOptions { MaxPlayers = 10 });
     }
 }

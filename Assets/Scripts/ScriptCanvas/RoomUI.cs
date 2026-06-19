@@ -71,7 +71,7 @@ public class RoomUI : MonoBehaviourPunCallbacks
 
     // ── Entrada / Salida de sala ─────────────────────────────────
 
-    void AlEntrarSala()
+    public void AlEntrarSala()
     {
         panelSala.SetActive(true);
         txtNombreSala.text = PhotonNetwork.CurrentRoom.Name;
