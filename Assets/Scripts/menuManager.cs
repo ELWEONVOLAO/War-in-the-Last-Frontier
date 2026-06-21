@@ -71,11 +71,48 @@ public class MenuManager : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        VolverAlMenu();
 
-        if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectando al servidor...";
-        PhotonNetwork.NickName = "Jugador_" + Random.Range(1000, 9999);
-        PhotonNetwork.ConnectUsingSettings();
+        // 1. ¿Venimos de terminar una partida?
+        if (GameManager.retornarAlMenuSala)
+        {
+            // Ocultamos todo
+            panelMenu.SetActive(false);
+            panelConfiguraciones.SetActive(false);
+            panelJuego.SetActive(false);
+            panelSalaJuego.SetActive(false);
+
+            // Activamos el "menú sala" (panelSalas o panelJuego, según como lo tengas organizado)
+            // Aquí te pongo panelSalas asumiendo que es el buscador, si es el otro cambialo a panelJuego.SetActive(true)
+            panelSalas.SetActive(true);
+
+            // Reseteamos la variable para la próxima vez que abramos el juego
+            GameManager.retornarAlMenuSala = false;
+        }
+        else
+        {
+            // 2. Si abrimos el juego recién, mostramos el menú principal normalmente
+            VolverAlMenu();
+        }
+
+        // 3. Manejo de la conexión a Photon
+        if (!PhotonNetwork.IsConnected)
+        {
+            // Si NO estamos conectados (abrimos el juego por primera vez)
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectando al servidor...";
+            PhotonNetwork.NickName = "Jugador_" + Random.Range(1000, 9999);
+            PhotonNetwork.ConnectUsingSettings();
+        }
+        else
+        {
+            // Si YA estamos conectados (venimos de terminar una partida)
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectado. Buscando partidas...";
+
+            // Nos volvemos a unir al Lobby principal para ver la lista de salas
+            if (!PhotonNetwork.InLobby)
+            {
+                PhotonNetwork.JoinLobby();
+            }
+        }
     }
 
     public void cambiarMenu()

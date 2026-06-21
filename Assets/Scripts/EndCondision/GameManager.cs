@@ -5,23 +5,23 @@ using Photon.Pun;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-/// <summary>
-/// Gestiona puntuación, fin de partida y regreso al menú.
-/// Requiere PhotonView en el mismo GameObject.
-/// </summary>
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager Instance;
 
     [Header("Configuración")]
     public int scoreToWin = 10;
-    public string mainMenuSceneName = "TitleScreen";
+    public string lobbySceneName = "LobbyScene"; // Cambiado para mayor claridad
+    public float matchDurationSeconds = 300f;    // NUEVO: Duración en segundos (ej. 5 min = 300)
 
-    // Claves de Room Properties (deben ser únicas)
+    // Claves de Room Properties
     private const string KEY_T1 = "ScoreT1";
     private const string KEY_T2 = "ScoreT2";
+    private const string KEY_START_TIME = "StartTime"; // NUEVO: Clave para el tiempo
 
     private bool matchOver = false;
+
+    public static bool retornarAlMenuSala = false;
 
     // ── Lifecycle ────────────────────────────────────────────────
 
@@ -33,34 +33,51 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        // Solo el Master inicializa el marcador en la red
+        // Solo el Master inicializa el marcador y el tiempo de inicio en la red
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.CurrentRoom.SetCustomProperties(
-                new Hashtable { [KEY_T1] = 0, [KEY_T2] = 0 });
+                new Hashtable
+                {
+                    [KEY_T1] = 0,
+                    [KEY_T2] = 0,
+                    [KEY_START_TIME] = PhotonNetwork.Time // Guardamos la hora exacta de inicio
+                });
         }
 
-        // Mostrar HUD desde el inicio
         UIManager.Instance?.ShowHUD();
         UIManager.Instance?.UpdateScoreUI(0, 0);
     }
 
-    // ── API pública ──────────────────────────────────────────────
+    // NUEVO: Lógica del temporizador
+    void Update()
+    {
+        if (matchOver) return;
 
-    /// <summary>
-    /// Llamar desde PlayerHealth.Die() pasando el equipo del jugador que MURIÓ.
-    /// El punto va al equipo ENEMIGO.
-    /// </summary>
-    // En GameManager.cs
+        // Si la propiedad de tiempo de inicio ya existe en la sala
+        if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(KEY_START_TIME, out object startTimeObj))
+        {
+            double startTime = (double)startTimeObj;
+            double elapsedTime = PhotonNetwork.Time - startTime;
+            float timeLeft = Mathf.Max(0, matchDurationSeconds - (float)elapsedTime);
+
+            // Actualizamos la UI en todos los clientes
+            UIManager.Instance?.UpdateTimerUI(Mathf.CeilToInt(timeLeft));
+
+            // Solo el Master Client decide si el tiempo se acabó
+            if (PhotonNetwork.IsMasterClient && timeLeft <= 0)
+            {
+                EndMatchByTime();
+            }
+        }
+    }
+
+    // ── API pública ──────────────────────────────────────────────
 
     public void RegisterDeath(int deadPlayerTeam)
     {
-        Debug.Log("RegisterDeath llamado, equipo muerto: " + deadPlayerTeam);
-
         if (matchOver) return;
 
-        // Si soy Master, sumo directo
-        // Si no soy Master, le pido al Master que sume
         if (PhotonNetwork.IsMasterClient)
             SumarPunto(deadPlayerTeam);
         else
@@ -79,29 +96,24 @@ public class GameManager : MonoBehaviourPunCallbacks
         int killerTeam = deadPlayerTeam == 1 ? 2 : 1;
         string key = killerTeam == 1 ? KEY_T1 : KEY_T2;
 
-        int current = PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(key)
-            ? (int)PhotonNetwork.CurrentRoom.CustomProperties[key] : 0;
-
-        Debug.Log($"Sumando punto al equipo {killerTeam}, nuevo score: {current + 1}");
+        int current = GetRoomScore(key);
 
         PhotonNetwork.CurrentRoom.SetCustomProperties(
             new Hashtable { [key] = current + 1 });
     }
 
-    // ── Callback Photon: alguien actualizó las Room Properties ──
+    // ── Callbacks y Fin de Partida ────────────────────────────────
 
     public override void OnRoomPropertiesUpdate(Hashtable props)
     {
-        int score1 = props.ContainsKey(KEY_T1) ? (int)props[KEY_T1] :
-                     GetRoomScore(KEY_T1);
-        int score2 = props.ContainsKey(KEY_T2) ? (int)props[KEY_T2] :
-                     GetRoomScore(KEY_T2);
+        int score1 = GetRoomScore(KEY_T1);
+        int score2 = GetRoomScore(KEY_T2);
 
         UIManager.Instance?.UpdateScoreUI(score1, score2);
 
         if (matchOver) return;
 
-        // El Master decide el fin de partida
+        // El Master decide el fin de partida por puntos
         if (PhotonNetwork.IsMasterClient)
         {
             if (score1 >= scoreToWin)
@@ -111,7 +123,18 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    // ── RPC fin de partida ───────────────────────────────────────
+    // NUEVO: Fin de partida cuando se agota el tiempo
+    void EndMatchByTime()
+    {
+        int score1 = GetRoomScore(KEY_T1);
+        int score2 = GetRoomScore(KEY_T2);
+
+        int winner = 0; // Por defecto es empate
+        if (score1 > score2) winner = 1;
+        else if (score2 > score1) winner = 2;
+
+        photonView.RPC(nameof(RPC_EndMatch), RpcTarget.All, winner);
+    }
 
     [PunRPC]
     void RPC_EndMatch(int winnerTeam)
@@ -129,13 +152,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     IEnumerator ReturnToMenu()
     {
+        // Espera 5 segundos viendo la pantalla de victoria/derrota
         yield return new WaitForSeconds(5f);
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveRoom(); // Esto dispara OnLeftRoom() automáticamente
     }
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        // Carga la escena del lobby. Asegúrate de que el nombre coincida en Unity.
+        SceneManager.LoadScene(lobbySceneName);
     }
 
     // ── Helper ───────────────────────────────────────────────────

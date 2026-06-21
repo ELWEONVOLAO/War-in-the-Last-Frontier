@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,12 +12,13 @@ public class UIManager : MonoBehaviour
     public GameObject defeatScreen;
     public GameObject tieScreen;
 
-    [Header("HUD - Marcador")]
+    [Header("HUD - Marcador y Tiempo")]
     public TextMeshProUGUI textTeam1Score;
     public TextMeshProUGUI textTeam2Score;
+    public TextMeshProUGUI textTimer; // NUEVO: Texto para el temporizador
 
     [Header("Pantallas de fin - Textos opcionales")]
-    public TextMeshProUGUI txtWinnerName;   // ej: "¡EQUIPO 1 GANA!" (puede ser null)
+    public TextMeshProUGUI txtWinnerName;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        // Todo oculto al inicio salvo el HUD
         HideAll();
     }
 
@@ -46,10 +45,18 @@ public class UIManager : MonoBehaviour
         if (textTeam2Score != null) textTeam2Score.text = score2.ToString();
     }
 
-    /// <summary>
-    /// winnerTeam: 1, 2, o 0 (empate)
-    /// myTeam: equipo del jugador local
-    /// </summary>
+    // NUEVO: Función para formatear y mostrar el tiempo
+    public void UpdateTimerUI(int timeInSeconds)
+    {
+        if (textTimer == null) return;
+
+        int minutes = timeInSeconds / 60;
+        int seconds = timeInSeconds % 60;
+
+        // Formato "00:00"
+        textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
     public void ShowEndScreen(int winnerTeam, int myTeam)
     {
         HideAll();
@@ -75,9 +82,9 @@ public class UIManager : MonoBehaviour
 
     void HideAll()
     {
-        if (hudScreen     != null) hudScreen.SetActive(false);
+        if (hudScreen != null) hudScreen.SetActive(false);
         if (victoryScreen != null) victoryScreen.SetActive(false);
-        if (defeatScreen  != null) defeatScreen.SetActive(false);
-        if (tieScreen     != null) tieScreen.SetActive(false);
+        if (defeatScreen != null) defeatScreen.SetActive(false);
+        if (tieScreen != null) tieScreen.SetActive(false);
     }
 }

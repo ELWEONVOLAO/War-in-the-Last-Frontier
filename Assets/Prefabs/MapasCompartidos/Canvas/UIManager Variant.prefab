@@ -59,14 +59,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9148001600557926028, guid: 0501385b02eb9474999d60aae0e01b79, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2726612529580748910}
+      addedObject: {fileID: -5694000941400854055}
   m_SourcePrefab: {fileID: 100100000, guid: 0501385b02eb9474999d60aae0e01b79, type: 3}
 --- !u!1 &6139898597015979265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9148001600557926028, guid: 0501385b02eb9474999d60aae0e01b79, type: 3}
   m_PrefabInstance: {fileID: 3152932891893908365}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2726612529580748910
+--- !u!114 &-5694000941400854055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,4 +84,5 @@ MonoBehaviour:
   tieScreen: {fileID: 0}
   textTeam1Score: {fileID: 0}
   textTeam2Score: {fileID: 0}
+  textTimer: {fileID: 0}
   txtWinnerName: {fileID: 0}
