@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour
     // Panel general del scoreboard que activaremos/desactivaremos
     public GameObject scoreboardPanel;
 
+    [Header("Menú de Pausa y Mira")]
+    public GameObject pausePanel;
+    public UnityEngine.UI.Image crosshairImage; // Asegúrate de usar UnityEngine.UI
+    public Sprite[] crosshairSprites; // Aquí pondrás tus diferentes diseños de mira
+    private bool isPaused = false;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -39,6 +45,13 @@ public class UIManager : MonoBehaviour
     {
         HideAll();
         if (scoreboardPanel != null) scoreboardPanel.SetActive(false);
+        if (pausePanel != null) pausePanel.SetActive(false);
+
+        // Bloqueamos el cursor en el centro y lo ocultamos al iniciar
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        CargarCrosshairGuardada();
     }
     void Update()
     {
@@ -56,6 +69,18 @@ public class UIManager : MonoBehaviour
             else if (Keyboard.current.tabKey.wasReleasedThisFrame)
             {
                 ToggleScoreboard(false);
+            }
+            // Lógica del Scoreboard (Tab)
+            
+            if (Keyboard.current.tabKey.wasPressedThisFrame)
+                ToggleScoreboard(true);
+            else if (Keyboard.current.tabKey.wasReleasedThisFrame)
+                ToggleScoreboard(false);
+
+            // NUEVO: Lógica del Menú de Pausa (Escape)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                TogglePause();
             }
         }
     }
@@ -163,5 +188,47 @@ public class UIManager : MonoBehaviour
         if (victoryScreen != null) victoryScreen.SetActive(false);
         if (defeatScreen != null) defeatScreen.SetActive(false);
         if (tieScreen != null) tieScreen.SetActive(false);
+    }
+    // ── Lógica de Pausa y Mira ───────────────────────────────────
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        if (pausePanel != null) pausePanel.SetActive(isPaused);
+
+        if (isPaused)
+        {
+            // Pausado: liberamos el mouse para usar los botones y ocultamos el HUD rápido
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            if (crosshairImage != null) crosshairImage.gameObject.SetActive(false);
+            ToggleScoreboard(false); // Cerramos scoreboard por si acaso
+        }
+        else
+        {
+            // Jugando: volvemos a bloquear el mouse y mostramos la mira
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            if (crosshairImage != null) crosshairImage.gameObject.SetActive(true);
+        }
+    }
+
+    public void BotonSalirDePartida()
+    {
+        // Esto le avisa a Photon que te vas. 
+        // Tu GameManager detectará esto (OnLeftRoom) y cargará la lobby automáticamente.
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void CargarCrosshairGuardada()
+    {
+        // PlayerPrefs nos permite guardar datos en el PC del jugador.
+        // Aquí leemos qué índice de mira guardó (por defecto 0).
+        int index = PlayerPrefs.GetInt("CrosshairIndex", 0);
+
+        if (crosshairImage != null && crosshairSprites.Length > 0 && index < crosshairSprites.Length)
+        {
+            crosshairImage.sprite = crosshairSprites[index];
+        }
     }
 }

@@ -1869,10 +1869,13 @@ MonoBehaviour:
   textTeam2Score: {fileID: 1434594338}
   textTimer: {fileID: 1434594337}
   txtWinnerName: {fileID: 1434594336}
-  team1Container: {fileID: 331276922}
-  team2Container: {fileID: 331276921}
+  team1Container: {fileID: 0}
+  team2Container: {fileID: 0}
   playerRowPrefab: {fileID: 4798697063943786815, guid: 626bd47806b6c1e4cb040da5574ea369, type: 3}
-  scoreboardPanel: {fileID: 331276920}
+  scoreboardPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  crosshairImage: {fileID: 0}
+  crosshairSprites: []
 --- !u!4 &303042068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6586665472101918716, guid: 3cad33961988728439bc07c6942d0306, type: 3}
@@ -2168,21 +2171,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf3eb9f382de32b46bf0e7d751ad177f, type: 3}
---- !u!1 &331276920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8326667828880784525, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
-  m_PrefabInstance: {fileID: 1434594335}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &331276921 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2479699588970189953, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
-  m_PrefabInstance: {fileID: 1434594335}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &331276922 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4197222416780657696, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
-  m_PrefabInstance: {fileID: 1434594335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &336696531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852020599399429599, guid: bf3eb9f382de32b46bf0e7d751ad177f, type: 3}
@@ -8696,9 +8684,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 754173988942214982, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 951654859889365625, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
       propertyPath: m_Name
       value: Canvas Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009008120850067927, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313365750508071662, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5725644882299748670, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
       propertyPath: m_Pivot.x
@@ -8779,6 +8779,22 @@ PrefabInstance:
     - target: {fileID: 5725644882299748670, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020233371017487271, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118332575029374292, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811470601274803306, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843802673723529968, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
