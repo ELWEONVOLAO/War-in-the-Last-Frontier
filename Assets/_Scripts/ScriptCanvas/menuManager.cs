@@ -68,58 +68,77 @@ public class MenuManager : MonoBehaviourPunCallbacks
     private static readonly Color colorPingMedio = new Color(1.00f, 0.85f, 0.20f, 1f);
     private static readonly Color colorPingMalo = new Color(1.00f, 0.30f, 0.20f, 1f);
 
-    void Start()
+    void Awake()
     {
+        // 1. Configuramos Photon lo antes posible
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        // 1. ¿Venimos de terminar una partida?
+        // 2. Nos conectamos en el Awake si no estamos conectados
+        if (!PhotonNetwork.IsConnected)
+        {
+            // Cargamos el nombre guardado súper rápido
+            if (PlayerPrefs.HasKey("NombreJugadorGuardado"))
+            {
+                PhotonNetwork.NickName = PlayerPrefs.GetString("NombreJugadorGuardado");
+            }
+            else
+            {
+                PhotonNetwork.NickName = "Jugador_" + Random.Range(1000, 9999);
+            }
+
+            // Lanzamos la conexión al Master Server
+            PhotonNetwork.ConnectUsingSettings();
+        }
+    }
+
+    void Start()
+    {
+        // El Start se encarga EXCLUSIVAMENTE de la interfaz gráfica y los paneles,
+        // porque aquí ya estamos 100% seguros de que el Canvas y los botones existen.
+
         if (GameManager.retornarAlMenuSala)
         {
-            // Ocultamos todo
             panelMenu.SetActive(false);
             panelConfiguraciones.SetActive(false);
             panelJuego.SetActive(false);
             panelSalaJuego.SetActive(false);
 
-            // Activamos el "menú sala" (panelSalas o panelJuego, según como lo tengas organizado)
-            // Aquí te pongo panelSalas asumiendo que es el buscador, si es el otro cambialo a panelJuego.SetActive(true)
             panelSalas.SetActive(true);
-
-            // Reseteamos la variable para la próxima vez que abramos el juego
             GameManager.retornarAlMenuSala = false;
         }
         else
         {
-            // 2. Si abrimos el juego recién, mostramos el menú principal normalmente
             VolverAlMenu();
         }
 
-        // 3. Manejo de la conexión a Photon
-        if (!PhotonNetwork.IsConnected)
+        // Actualizamos los textos visuales según el estado de Photon
+        if (PhotonNetwork.IsConnected)
         {
-            // Si NO estamos conectados (abrimos el juego por primera vez)
-            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectando al servidor...";
-            PhotonNetwork.NickName = "Jugador_" + Random.Range(1000, 9999);
-            PhotonNetwork.ConnectUsingSettings();
-        }
-        else
-        {
-            // Si YA estamos conectados (venimos de terminar una partida)
             if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectado. Buscando partidas...";
+            if (inputNombreJugador != null) inputNombreJugador.text = PhotonNetwork.NickName;
 
-            // Nos volvemos a unir al Lobby principal para ver la lista de salas
             if (!PhotonNetwork.InLobby)
             {
                 PhotonNetwork.JoinLobby();
             }
         }
+        else
+        {
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectando al servidor...";
+        }
     }
-
 
     public void cambiarMenu()
     {
         if (inputNombreJugador != null && !string.IsNullOrEmpty(inputNombreJugador.text))
+        {
+            // Asignamos el nombre a Photon
             PhotonNetwork.NickName = inputNombreJugador.text;
+
+            // GUARDAMOS EL NOMBRE EN LA MEMORIA DEL PC
+            PlayerPrefs.SetString("NombreJugadorGuardado", inputNombreJugador.text);
+            PlayerPrefs.Save();
+        }
 
         panelMenu.SetActive(false);
         panelJuego.SetActive(true);
@@ -148,7 +167,31 @@ public class MenuManager : MonoBehaviourPunCallbacks
     }
 
     public void UnirseASalaEspecifica() { panelJuego.SetActive(false); panelSalas.SetActive(true); }
-    public void UnirseASalaAleatoria() => PhotonNetwork.JoinRandomRoom();
+    public void UnirseASalaAleatoria()
+    {
+        // 1. Evitamos bugs si el jugador ya está en una sala y apretó el botón por error
+        if (PhotonNetwork.InRoom) return;
+
+        // 2. Comprobamos que Photon esté listo para recibir el comando
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Buscando sala aleatoria...";
+            PhotonNetwork.JoinRandomRoom();
+        }
+        else
+        {
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Espera, conectando...";
+        }
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        // Si no encontró ninguna sala aleatoria disponible, creamos una nueva.
+        if (textoEstadoGlobal != null) textoEstadoGlobal.text = "No hay salas disponibles. Creando una nueva...";
+
+        RoomOptions opciones = new RoomOptions { MaxPlayers = 10 };
+        PhotonNetwork.CreateRoom("Sala_" + Random.Range(1000, 10000), opciones);
+    }
 
     public override void OnConnectedToMaster()
     {
@@ -511,13 +554,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
         string nombreEscenaCargar = todosLosMapas[indiceGanador].nombreEscena;
 
         PhotonNetwork.LoadLevel(nombreEscenaCargar);
-    }
 
-    public override void OnCreateRoomFailed(short returnCode, string message) { }
-    public override void OnJoinRoomFailed(short returnCode, string message) { }
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        // Si fallas al unirte a una aleatoria, Photon crea una con este nombre generado al azar
-        PhotonNetwork.CreateRoom("Sala_" + Random.Range(1000, 10000), new RoomOptions { MaxPlayers = 10 });
     }
 }
