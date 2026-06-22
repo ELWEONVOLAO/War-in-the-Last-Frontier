@@ -1170,6 +1170,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625475885}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &656641354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8051069393620349999, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+  m_PrefabInstance: {fileID: 1063857195652385933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &656641355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6396216497833293396, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+  m_PrefabInstance: {fileID: 1063857195652385933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &698144666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8819839737754294549, guid: 9d2ef0953e84430489fb21bc59f9ce28, type: 3}
@@ -3826,11 +3842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1063857195652385941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 951654859889365625, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
-  m_PrefabInstance: {fileID: 1063857195652385933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2001235401164866241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3842,7 +3853,7 @@ PrefabInstance:
     - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
       propertyPath: hudScreen
       value: 
-      objectReference: {fileID: 1063857195652385941}
+      objectReference: {fileID: 656641355}
     - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
       propertyPath: textTimer
       value: 
@@ -3868,6 +3879,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 433399787}
     - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: crosshairImage
+      value: 
+      objectReference: {fileID: 656641354}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
       propertyPath: team1Container
       value: 
       objectReference: {fileID: 1047891600}
@@ -3891,6 +3906,182 @@ PrefabInstance:
       propertyPath: scoreboardPanel
       value: 
       objectReference: {fileID: 1063857195652385935}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: crosshairSprites.Array.size
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: db715fb7f84262c49b090e1065581a08, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b22c60b387be494ca85331bfb46e1f1, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: da65c6866f00e4047b1f6a46494df9ca, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: aed9914528066c44cbe90412423551e5, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 18c4286cba3e2064aa10ce82f5de3df8, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 41740ab5aaa6d1f468f83a12e0e90d75, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 5346371e87251954a864c6287d08ca27, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[7]'
+      value: 
+      objectReference: {fileID: 21300000, guid: bd32cdb856215494c882cd733b95929b, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[8]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 4aade28a52431a24aade57886029547e, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[9]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 92977ae14977589459066ce51ef959dc, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[10]'
+      value: 
+      objectReference: {fileID: 21300000, guid: ab2b2e91b4cc0d94cb365789a6dcdfd2, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[11]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 24cbfab54ba02cc449becaf832b93caa, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[12]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 9380f691edd5bb54fa72e226fc71c67a, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[13]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 047133c471f2a4b4a812b7c4b83a45cc, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[14]'
+      value: 
+      objectReference: {fileID: 21300000, guid: b478e37391dbe5f4a87768661a70242c, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[15]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a1dc1006ab6cac4e95e914e6f78f859, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[16]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 4cbb79233717caf40abef54d3f6de8e9, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[17]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 20451f424820b414e8676626ddb5f643, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[18]'
+      value: 
+      objectReference: {fileID: 21300000, guid: bf42c5270223e724ea28735591817ef6, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[19]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 03f5a7cf910178047ae674053dbc390c, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[20]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 52dacbb7ab008184db4e54031a8aa615, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[21]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b84d3cbea0f9934e9d9bf0ea84abde8, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[22]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 426a843fcb237b542b1f07b8eacd6705, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[23]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ea0ab50e498c9f439c893352277388a, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[24]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 75d8a9e9a73923641bb797e1fdc8dd3a, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[25]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 340714d852cefc34696d652727c34fd0, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[26]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b6fbb4b0fa7fa845a9721d5f66ed9c2, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[27]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 58f15c9c8f8d9b74d8d9e1fcb43be381, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[28]'
+      value: 
+      objectReference: {fileID: 21300000, guid: e72478363f936664893a6175fb819017, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[29]'
+      value: 
+      objectReference: {fileID: 21300000, guid: aed2f9a876eb2c14d963e91e72253b3c, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[30]'
+      value: 
+      objectReference: {fileID: 21300000, guid: ddbe95c0aacc82c49936f0f38514f6cd, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[31]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 580675bb702e863459c23a192b2c1f28, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[32]'
+      value: 
+      objectReference: {fileID: 21300000, guid: ac527b6231583fc46936a31df23d2c64, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[33]'
+      value: 
+      objectReference: {fileID: 21300000, guid: dbac82fedd4ba6e43a5309e355feb43d, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[34]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 75590ce9719fd08498919a277fc86041, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[35]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 92535e19562462c43b9aa7918d035ee6, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[36]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 65f132a7e15de30449cfbf3bc0002139, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[37]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fedc03ef15361a54abddb9278d63f53f, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[38]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fccb42d6c3a06e419ff681816d60819, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[39]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 954255e9a8e853140aea826f5a232a5f, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[40]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 79ef5de1661c7e546ab54aa6736df64f, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[41]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 4518c1461af1a5f49b8e86e7016e9e9a, type: 3}
+    - target: {fileID: -5694000941400854055, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
+      propertyPath: 'crosshairSprites.Array.data[42]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b44a64d1d685154fa3e80cc164d8bc1, type: 3}
     - target: {fileID: 4170440325213728165, guid: accbf7ac625cf16468c8740a66395f70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
