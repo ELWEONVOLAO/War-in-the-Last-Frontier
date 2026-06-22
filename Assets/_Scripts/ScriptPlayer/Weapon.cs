@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using Photon.Pun;
 using Unity.Mathematics;
 using TMPro;
@@ -44,8 +45,16 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        // 1. Freno si recargamos
         if (isReloading) return;
 
+        // 2. Freno de pausa (no hacer nada si el menú está abierto)
+        if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
+
+        // 3. Freno de UI (no disparar si el ratón está sobre un botón del canvas)
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
+        // --- Aquí empieza tu código de disparo normal ---
         timeUntilAllowNextShot = math.max(0, timeUntilAllowNextShot - Time.deltaTime);
 
         if (Mouse.current.leftButton.isPressed && timeUntilAllowNextShot <= 0)
@@ -64,7 +73,6 @@ public class Weapon : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
             StartReload();
     }
-
     void HitScanShoot()
     {
         currentAmmo--;

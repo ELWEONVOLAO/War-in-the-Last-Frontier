@@ -13,6 +13,7 @@ public class PlayerMotor : MonoBehaviourPun
 
     //Photon
     public GameObject fpCamera;
+    public GameObject minimapCamera; 
     public TextMeshPro nameText;
     void Start()
     {
@@ -27,6 +28,15 @@ public class PlayerMotor : MonoBehaviourPun
         //Nombre Flotante
         nameText.gameObject.SetActive(!photonView.IsMine);
         nameText.text = photonView.Owner != null ? photonView.Owner.NickName : "Jugador Offline";
+
+        if (UIManager.Instance != null && UIManager.Instance.isGamePaused)
+        {
+            return;
+        }
+        if (minimapCamera != null)
+        {
+            minimapCamera.SetActive(photonView.IsMine);
+        }
     }
 
     // Update is called once per frame

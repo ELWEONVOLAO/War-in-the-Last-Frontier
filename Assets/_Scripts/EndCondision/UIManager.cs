@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -31,9 +32,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Menú de Pausa y Mira")]
     public GameObject pausePanel;
-    public UnityEngine.UI.Image crosshairImage; // Asegúrate de usar UnityEngine.UI
-    public Sprite[] crosshairSprites; // Aquí pondrás tus diferentes diseños de mira
-    private bool isPaused = false;
+    public GameObject settingsPanel; 
+    public UnityEngine.UI.Image crosshairImage; 
+    public Sprite[] crosshairSprites; 
+    public bool isGamePaused = false;
 
     private void Awake()
     {
@@ -55,35 +57,44 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        // 2. REEMPLAZA EL UPDATE CON ESTO:
+        // Usamos el sistema clásico (Input) para evitar que el EventSystem 
+        // o el Editor de Unity intercepten y bloqueen nuestras teclas.
 
-        // Verificamos que haya un teclado conectado para evitar errores
-        if (Keyboard.current != null)
+        // Lógica del Scoreboard (Tab)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            // Detecta cuando PRESIONAS la tecla Tab
-            if (Keyboard.current.tabKey.wasPressedThisFrame)
-            {
-                ToggleScoreboard(true);
-            }
-            // Detecta cuando SUELTAS la tecla Tab
-            else if (Keyboard.current.tabKey.wasReleasedThisFrame)
-            {
-                ToggleScoreboard(false);
-            }
-            // Lógica del Scoreboard (Tab)
-            
-            if (Keyboard.current.tabKey.wasPressedThisFrame)
-                ToggleScoreboard(true);
-            else if (Keyboard.current.tabKey.wasReleasedThisFrame)
-                ToggleScoreboard(false);
+            ToggleScoreboard(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            ToggleScoreboard(false);
+        }
 
-            // NUEVO: Lógica del Menú de Pausa (Escape)
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        // Lógica del Menú de Pausa (Escape)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Si el juego está pausado y el panel de configuraciones está abierto...
+            if (isGamePaused && settingsPanel != null && settingsPanel.activeSelf)
             {
+                // Volver de configuraciones al menú de pausa
+                settingsPanel.SetActive(false);
+                pausePanel.SetActive(true);
+            }
+            else
+            {
+                // Entrar o salir del menú de pausa normal
                 TogglePause();
             }
         }
+
+        // LA SOLUCIÓN DE FUERZA BRUTA (Mantenemos esto para evitar el fantasma del clic)
+        if (isGamePaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
+
 
     // ── Llamados desde GameManager ───────────────────────────────
 
@@ -193,26 +204,30 @@ public class UIManager : MonoBehaviour
 
     public void TogglePause()
     {
-        isPaused = !isPaused;
-        if (pausePanel != null) pausePanel.SetActive(isPaused);
+        isGamePaused = !isGamePaused;
 
-        if (isPaused)
+        if (pausePanel != null) pausePanel.SetActive(isGamePaused);
+
+        if (isGamePaused)
         {
-            // Pausado: liberamos el mouse para usar los botones y ocultamos el HUD rápido
+            // Entramos a pausa: nos aseguramos de que settings esté apagado
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             if (crosshairImage != null) crosshairImage.gameObject.SetActive(false);
-            ToggleScoreboard(false); // Cerramos scoreboard por si acaso
+            ToggleScoreboard(false);
         }
         else
         {
-            // Jugando: volvemos a bloquear el mouse y mostramos la mira
+            // Salimos de pausa: cerramos TODOS los menús
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             if (crosshairImage != null) crosshairImage.gameObject.SetActive(true);
         }
     }
-
     public void BotonSalirDePartida()
     {
         // Esto le avisa a Photon que te vas. 

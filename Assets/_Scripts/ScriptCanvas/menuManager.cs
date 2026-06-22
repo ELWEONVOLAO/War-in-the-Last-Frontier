@@ -115,6 +115,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
         }
     }
 
+
     public void cambiarMenu()
     {
         if (inputNombreJugador != null && !string.IsNullOrEmpty(inputNombreJugador.text))

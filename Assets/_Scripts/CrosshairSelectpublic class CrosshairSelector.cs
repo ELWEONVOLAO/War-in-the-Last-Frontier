@@ -55,12 +55,17 @@ public class CrosshairSelector : MonoBehaviour
     public void SeleccionarMira(int indice)
     {
         // Guardamos la elección en la memoria de la PC
-        // La clave "CrosshairIndex" DEBE ser idéntica a la que usas en el UIManager
         PlayerPrefs.SetInt("CrosshairIndex", indice);
         PlayerPrefs.Save();
 
-        // Actualizamos la previsualización visual
+        // Actualizamos la previsualización visual en el menú de configuraciones
         ActualizarPreview(indice);
+
+        // ---> NUEVO: Le decimos al HUD principal que recargue la mira de inmediato <---
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.CargarCrosshairGuardada();
+        }
     }
 
     void ActualizarPreview(int indice)

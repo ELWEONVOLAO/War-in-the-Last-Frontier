@@ -68,4 +68,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToWin: 10
-  mainMenuSceneName: TitleScreen
+  lobbySceneName: TitleScreen
+  matchDurationSeconds: 300

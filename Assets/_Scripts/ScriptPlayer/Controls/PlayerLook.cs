@@ -9,6 +9,17 @@ public class PlayerLook : MonoBehaviourPun
     public float xSensitivity = 30f;
     public float ySensitivity = 30f;
 
+    void Update()
+    {
+        // SI EL JUEGO ESTÁ EN PAUSA, IGNORAMOS EL MOVIMIENTO DEL RATÓN Y LOS CLICS
+        if (UIManager.Instance != null && UIManager.Instance.isGamePaused)
+        {
+            return;
+        }
+
+        // ... [Aquí abajo va todo tu código normal de mover la cámara o disparar] ...
+    }
+
     public void ProcessLook(Vector2 input)
     {
         float mouseX = input.x;

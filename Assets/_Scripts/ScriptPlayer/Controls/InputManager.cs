@@ -7,29 +7,46 @@ public class InputManager : MonoBehaviour
 
     private PlayerMotor Play;
     private PlayerLook look;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Awake()
     {
         playerInput = new PlayerInput();
         Player = playerInput.Player;
         Play = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
-        Player.Jump.performed += ctx => Play.Jump();
+
+        // Freno para el salto
+        Player.Jump.performed += ctx =>
+        {
+            if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
+            Play.Jump();
+        };
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+        if (UIManager.Instance != null && UIManager.Instance.isGamePaused)
+        {
+            Play.ProcessMove(Vector2.zero);
+            return;
+        }
+
         Play.ProcessMove(Player.Movement.ReadValue<Vector2>());
     }
+
     private void LateUpdate()
     {
+        // Freno de pausa para la cámara
+        if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
+
         look.ProcessLook(Player.Look.ReadValue<Vector2>());
     }
+
     private void OnEnable()
     {
         Player.Enable();
     }
+
     private void OnDisable()
     {
         Player.Disable();
