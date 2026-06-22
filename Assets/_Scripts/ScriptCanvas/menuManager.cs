@@ -161,7 +161,27 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void CrearSala()
     {
-        if (string.IsNullOrEmpty(inputNombreSala.text)) return;
+        // 1. Avisamos por consola que apretamos el botón
+        Debug.Log("Intentando crear sala...");
+
+        // 2. Comprobamos que el input no esté vacío
+        if (inputNombreSala == null || string.IsNullOrEmpty(inputNombreSala.text))
+        {
+            Debug.LogWarning("El nombre de la sala está vacío.");
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "¡Escribe un nombre para la sala!";
+            return;
+        }
+
+        // 3. Comprobamos que Photon esté conectado
+        if (!PhotonNetwork.IsConnectedAndReady)
+        {
+            Debug.LogWarning("Photon aún no está listo.");
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Espera a estar conectado...";
+            return;
+        }
+
+        // 4. Si todo está bien, creamos la sala
+        if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Creando sala...";
         RoomOptions opciones = new RoomOptions { MaxPlayers = 10 };
         PhotonNetwork.CreateRoom(inputNombreSala.text, opciones);
     }
@@ -555,5 +575,10 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.LoadLevel(nombreEscenaCargar);
 
+    }
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.LogError("Error al crear la sala: " + message);
+        if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Error: " + message;
     }
 }
