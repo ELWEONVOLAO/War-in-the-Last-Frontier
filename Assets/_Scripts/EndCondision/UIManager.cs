@@ -234,6 +234,20 @@ public class UIManager : MonoBehaviour
         // Tu GameManager detectará esto (OnLeftRoom) y cargará la lobby automáticamente.
         PhotonNetwork.LeaveRoom();
     }
+    public void BotonCambiarClase()
+    {
+        // 1. Cerramos el menú de pausa para limpiar la pantalla
+        if (isGamePaused)
+        {
+            TogglePause();
+        }
+
+        // 2. Buscamos al jugador local y le ordenamos abrir su selector
+        if (ClassSelector.LocalInstance != null)
+        {
+            ClassSelector.LocalInstance.AbrirMenuDeClases();
+        }
+    }
 
     public void CargarCrosshairGuardada()
     {

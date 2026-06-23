@@ -8,7 +8,7 @@ using TMPro;
 
 public class Weapon : MonoBehaviour
 {
-    [Header("Weapon Stats")]
+    [Header("Atributos Básicos")]
     public float fireRate = 10f;
     public float damagePerShot = 25f;
     public float hitScanDistance = 500f;
@@ -18,50 +18,64 @@ public class Weapon : MonoBehaviour
     public int reserveAmmo = 90;
     public float reloadTime = 2f;
 
-    [Header("Partículas")]
+    [Header("--- TIPO DE ARMA ---")]
+    public bool esEscopeta = false;
+    public int cantidadPerdigones = 8; // Solo se usa si es escopeta
+    public float dispersion = 0.05f;   // Nivel de apertura de las balas
+
+    [Header("--- SNIPER SCOPE ---")]
+    public bool esSniper = false;
+    public GameObject modeloArma3D;    // Para ocultar el arma al apuntar
+    public GameObject miraOverlayUI;   // La imagen negra de la mira telescópica (Canvas)
+    public float fovNormal = 60f;
+    public float fovApuntando = 15f;
+    private bool estaApuntando = false;
+
+    [Header("Visuales")]
     public GameObject efectoMetal;
     public ParticleSystem casingParticles;
-
-    [Header("Camera")]
     public Transform cameraTransform;
-
-    [Header("UI")]
     public TextMeshProUGUI ammoText;
-
-    [Header("Tracer")]
     public LineRenderer bulletTracer;
     public float tracerDuration = 0.05f;
 
     private int currentAmmo;
     private float timeUntilAllowNextShot;
     private bool isReloading;
+    private Camera mainCamera;
 
     void Start()
     {
         currentAmmo = maxAmmo;
         if (bulletTracer != null) bulletTracer.enabled = false;
+        if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
+        mainCamera = cameraTransform.GetComponent<Camera>();
         UpdateAmmoUI();
     }
 
     void Update()
     {
-        // 1. Freno si recargamos
         if (isReloading) return;
-
-        // 2. Freno de pausa (no hacer nada si el menú está abierto)
         if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
-
-        // 3. Freno de UI (no disparar si el ratón está sobre un botón del canvas)
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
-        // --- Aquí empieza tu código de disparo normal ---
+        // --- Lógica del Sniper Scope ---
+        if (esSniper && Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            ToggleScope();
+        }
+
+        // --- Lógica de Disparo ---
         timeUntilAllowNextShot = math.max(0, timeUntilAllowNextShot - Time.deltaTime);
 
-        if (Mouse.current.leftButton.isPressed && timeUntilAllowNextShot <= 0)
+        // Si no es automática (Sniper o Escopeta), disparamos por clic. Si es automática (Rifle), mantenemos presionado.
+        bool intentoDisparo = (esSniper || esEscopeta) ? Mouse.current.leftButton.wasPressedThisFrame : Mouse.current.leftButton.isPressed;
+
+        if (intentoDisparo && timeUntilAllowNextShot <= 0)
         {
             if (currentAmmo > 0)
             {
-                HitScanShoot();
+                Disparar();
                 timeUntilAllowNextShot = 1f / fireRate;
             }
             else
@@ -73,45 +87,84 @@ public class Weapon : MonoBehaviour
         if (Keyboard.current.rKey.wasPressedThisFrame)
             StartReload();
     }
-    void HitScanShoot()
+
+    void Disparar()
     {
         currentAmmo--;
         UpdateAmmoUI();
+        if (casingParticles != null) casingParticles.Emit(1);
 
-        if (casingParticles != null)
-            casingParticles.Emit(1);
+        // Si es escopeta disparamos varios rayos, si no, solo 1.
+        int rayosADisparar = esEscopeta ? cantidadPerdigones : 1;
 
-        // Un solo Raycast
-        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        bool golpeo = Physics.Raycast(ray, out RaycastHit hit, hitScanDistance);
-
-        // Endpoint del tracer
-        Vector3 endPoint = golpeo
-            ? hit.point
-            : ray.origin + ray.direction * hitScanDistance;
-
-        if (bulletTracer != null)
-            StartCoroutine(ShowTracer(ray.origin, endPoint));
-
-        if (golpeo)
+        for (int i = 0; i < rayosADisparar; i++)
         {
-            Debug.Log("Golpeaste: " + hit.transform.name);
+            Vector3 direccionDisparo = cameraTransform.forward;
 
-            PlayerHealth ph = hit.transform.GetComponentInParent<PlayerHealth>();
-            if (ph != null)
-                ph.photonView.RPC(nameof(ph.RPC_TakeDamage),
-                                  ph.photonView.Owner,
-                                  (int)damagePerShot);
-
-            if (efectoMetal != null)
+            // Aplicamos dispersión (Spread) si la tiene
+            if (dispersion > 0)
             {
-                Vector3 pos = hit.point + hit.normal * 0.02f;
-                Destroy(Instantiate(efectoMetal, pos, Quaternion.LookRotation(hit.normal)), 5f);
+                direccionDisparo += new Vector3(
+                    UnityEngine.Random.Range(-dispersion, dispersion),
+                    UnityEngine.Random.Range(-dispersion, dispersion),
+                    UnityEngine.Random.Range(-dispersion, dispersion)
+                );
+                direccionDisparo.Normalize();
+            }
+
+            Ray ray = new Ray(cameraTransform.position, direccionDisparo);
+            bool golpeo = Physics.Raycast(ray, out RaycastHit hit, hitScanDistance);
+
+            Vector3 endPoint = golpeo ? hit.point : ray.origin + ray.direction * hitScanDistance;
+
+            if (bulletTracer != null) StartCoroutine(ShowTracer(ray.origin, endPoint));
+
+            if (golpeo)
+            {
+                PlayerHealth ph = hit.transform.GetComponentInParent<PlayerHealth>();
+                if (ph != null)
+                {
+                    ph.photonView.RPC(nameof(ph.RPC_TakeDamage), ph.photonView.Owner, (int)damagePerShot);
+                }
+
+                if (efectoMetal != null)
+                {
+                    Vector3 pos = hit.point + hit.normal * 0.02f;
+                    Destroy(Instantiate(efectoMetal, pos, Quaternion.LookRotation(hit.normal)), 5f);
+                }
             }
         }
     }
 
-    // ShowTracer va aquí afuera, como método de la clase
+    void ToggleScope()
+    {
+        estaApuntando = !estaApuntando;
+
+        // Ocultamos/Mostramos la interfaz del HUD normal (para que no estorbe)
+        if (UIManager.Instance != null && UIManager.Instance.crosshairImage != null)
+            UIManager.Instance.crosshairImage.gameObject.SetActive(!estaApuntando);
+
+        if (estaApuntando)
+        {
+            StartCoroutine(EfectoZoomSniper());
+        }
+        else
+        {
+            if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
+            if (modeloArma3D != null) modeloArma3D.SetActive(true);
+            mainCamera.fieldOfView = fovNormal;
+        }
+    }
+
+    IEnumerator EfectoZoomSniper()
+    {
+        // Un pequeño retraso para que la animación se vea suave
+        yield return new WaitForSeconds(0.15f);
+        if (miraOverlayUI != null) miraOverlayUI.SetActive(true);
+        if (modeloArma3D != null) modeloArma3D.SetActive(false); // Ocultamos el arma de la pantalla
+        mainCamera.fieldOfView = fovApuntando; // Hacemos zoom
+    }
+
     IEnumerator ShowTracer(Vector3 start, Vector3 end)
     {
         bulletTracer.enabled = true;
@@ -123,6 +176,9 @@ public class Weapon : MonoBehaviour
 
     void StartReload()
     {
+        // Si estábamos apuntando con el sniper, quitamos la mira para recargar
+        if (estaApuntando) ToggleScope();
+
         if (isReloading || currentAmmo == maxAmmo || reserveAmmo <= 0) return;
         isReloading = true;
         UpdateAmmoUI();
@@ -143,5 +199,11 @@ public class Weapon : MonoBehaviour
     {
         if (ammoText == null) return;
         ammoText.text = isReloading ? "Recargando..." : $"{currentAmmo} / {reserveAmmo}";
+    }
+
+    // Para el gestor de clases, necesitamos una función que apague la mira si cambiamos de arma rápido
+    void OnDisable()
+    {
+        if (estaApuntando) ToggleScope();
     }
 }
