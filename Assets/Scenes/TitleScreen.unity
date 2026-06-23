@@ -655,6 +655,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1124331506304330324, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_text
+      value: 'unirse a una sala
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2255692147451528638, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.00012207031
@@ -695,6 +701,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
+    - target: {fileID: 3134231645642496685, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_text
+      value: metese a una sala random
+      objectReference: {fileID: 0}
     - target: {fileID: 3382858580605591057, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

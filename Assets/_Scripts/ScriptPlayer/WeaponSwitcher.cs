@@ -4,19 +4,20 @@ using Photon.Pun;
 
 public class WeaponSwitcher : MonoBehaviourPun
 {
-    [Header("Armas Equipadas (Asignadas automáticamente)")]
+    [Header("Armas Equipadas")]
     public GameObject armaPrimaria;
     public GameObject armaSecundaria;
 
-    private int armaActiva = 1; // 1 = Primaria, 2 = Secundaria
+    [Header("Contenedor de la Cámara")]
+    public Transform weaponHandler; // <-- Aquí irá tu objeto vacío de la vista
+
+    private int armaActiva = 1;
 
     void Update()
     {
-        // Frenos de seguridad
         if (!photonView.IsMine) return;
         if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
 
-        // 1. Cambio con la rueda del ratón (Mouse Scroll)
         if (Mouse.current != null)
         {
             float scrollValue = Mouse.current.scroll.ReadValue().y;
@@ -26,7 +27,6 @@ public class WeaponSwitcher : MonoBehaviourPun
             }
         }
 
-        // 2. Cambio con las teclas alfanuméricas 1 y 2
         if (Keyboard.current != null)
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame && armaActiva != 1)
@@ -50,6 +50,15 @@ public class WeaponSwitcher : MonoBehaviourPun
     {
         if (armaPrimaria == null) return;
         armaActiva = 1;
+
+        // Mueve el arma al WeaponHandler y la centra
+        if (weaponHandler != null)
+        {
+            armaPrimaria.transform.SetParent(weaponHandler);
+            armaPrimaria.transform.localPosition = Vector3.zero;
+            armaPrimaria.transform.localRotation = Quaternion.identity;
+        }
+
         armaPrimaria.SetActive(true);
         if (armaSecundaria != null) armaSecundaria.SetActive(false);
     }
@@ -58,17 +67,24 @@ public class WeaponSwitcher : MonoBehaviourPun
     {
         if (armaSecundaria == null) return;
         armaActiva = 2;
+
+        // Mueve el arma al WeaponHandler y la centra
+        if (weaponHandler != null)
+        {
+            armaSecundaria.transform.SetParent(weaponHandler);
+            armaSecundaria.transform.localPosition = Vector3.zero;
+            armaSecundaria.transform.localRotation = Quaternion.identity;
+        }
+
         armaSecundaria.SetActive(true);
         if (armaPrimaria != null) armaPrimaria.SetActive(false);
     }
 
-    // Esta función es llamada por el menú de clases de los 15 segundos
     public void ConfigurarLoadout(GameObject primaria, GameObject secundaria)
     {
         armaPrimaria = primaria;
         armaSecundaria = secundaria;
 
-        // Al elegir la clase, siempre empezamos con la primaria en la mano
         EquiparPrimaria();
     }
 }

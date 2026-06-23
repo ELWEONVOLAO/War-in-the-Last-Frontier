@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6386396455067734208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3145024939492857145}
+  m_Layer: 3
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3145024939492857145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386396455067734208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 809556747423729082}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7351490913440744391
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +45,8 @@ GameObject:
   - component: {fileID: 2801741805554187911}
   - component: {fileID: 3583092337107380067}
   - component: {fileID: 7025797391237846196}
-  m_Layer: 0
+  - component: {fileID: 3835864886411622023}
+  m_Layer: 3
   m_Name: Escopeta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,11 +61,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7351490913440744391}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.1167941, z: -0, w: 0.9931562}
+  m_LocalRotation: {x: 0, y: -0.11679213, z: 0, w: 0.99315643}
   m_LocalPosition: {x: 0.285, y: -0.13100004, z: 0.621}
   m_LocalScale: {x: 0.10032, y: 0.09419856, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3145024939492857145}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -13.414, z: 0}
 --- !u!33 &6259561736926653319
@@ -122,18 +155,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ad79da59719d449be1c3c2bed28105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
-  damagePerShot: 25
-  hitScanDistance: 500
-  maxAmmo: 30
-  reserveAmmo: 180
+  fireRate: 1
+  damagePerShot: 100
+  hitScanDistance: 80
+  maxAmmo: 4
+  reserveAmmo: 12
   reloadTime: 2
-  efectoMetal: {fileID: 2411000941336179938, guid: 54372b93e5dac2e43ae5205c7b9aa781, type: 3}
-  casingParticles: {fileID: 0}
-  cameraTransform: {fileID: 0}
+  esEscopeta: 1
+  cantidadPerdigones: 8
+  dispersion: 0.05
+  esSniper: 0
+  modeloArma3D: {fileID: 0}
+  miraOverlayUI: {fileID: 0}
+  fovNormal: 60
+  fovApuntando: 15
   ammoText: {fileID: 0}
-  bulletTracer: {fileID: 0}
+  efectoMetal: {fileID: 2411000941336179938, guid: 54372b93e5dac2e43ae5205c7b9aa781, type: 3}
+  casingParticles: {fileID: 6096141151514129835, guid: 05d732a1a38da8e42a345c4329d75036, type: 3}
+  cameraTransform: {fileID: 0}
+  bulletTracer: {fileID: 3835864886411622023}
   tracerDuration: 0.05
+  impactoMetal: {fileID: 5536968965748220325, guid: 5ed2707b676e3eb47b1115af5e6bb1ab, type: 3}
+  impactoMadera: {fileID: 2229394018461719284, guid: 83e62217e6385384698164bf5089321b, type: 3}
+  impactoPiedra: {fileID: 540619042595940169, guid: 2d32e7c7a8c3f5b4ea1caa1bfbde05a0, type: 3}
+  impactoArena: {fileID: 8297681596692562556, guid: 9e6db83f238cee3499f63700eb4c25c5, type: 3}
+  impactoCarne: {fileID: 593378967955486714, guid: 99cc15889d5dbac4794be9629fb41968, type: 3}
+  impactoPorDefecto: {fileID: 540619042595940169, guid: 2d32e7c7a8c3f5b4ea1caa1bfbde05a0, type: 3}
+  muzzleFlashPrefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  puntoDisparo: {fileID: 3145024939492857145}
 --- !u!114 &7025797391237846196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +205,110 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!120 &3835864886411622023
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351490913440744391}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1

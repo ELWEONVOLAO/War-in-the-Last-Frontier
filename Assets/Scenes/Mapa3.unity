@@ -926,6 +926,38 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 300530176}
+    - target: {fileID: 7928313361215145420, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928313361215145420, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928313361215145420, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928313361215145420, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525640449832179053, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525640449832179053, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525640449832179053, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525640449832179053, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1444,6 +1476,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7472269511699481, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 16503341149910735, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1472,6 +1508,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Piedra
       objectReference: {fileID: 0}
+    - target: {fileID: 191811456007212491, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 205035915013687738, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1484,9 +1524,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 241473677884787433, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 321019376722007538, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 321019376722007538, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 334401374402576058, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1511,6 +1559,10 @@ PrefabInstance:
     - target: {fileID: 392838988230766734, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 431740696284962340, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 432815920969407855, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1556,6 +1608,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 576862132112605474, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 590069954906170441, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -1563,6 +1619,10 @@ PrefabInstance:
     - target: {fileID: 603518749507045659, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 620883962855833987, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 623360248389736692, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1572,9 +1632,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 631639103689289459, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 659368116649384926, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 659368116649384926, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 671908218700073380, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 672309998614327718, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 715808657658126465, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1596,13 +1672,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 810309348505027168, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 844055865026756212, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 844055865026756212, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 873650018211447083, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 953286610254091839, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 979359188191081470, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1612,13 +1700,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 983812919338058800, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1061952659696890507, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1061952659696890507, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1084334381404694547, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094522587664519215, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1109278725139871654, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1628,17 +1728,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1109752020029124425, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1177440521625919064, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193011806278627588, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1208260662542075035, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 1211783980458376263, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1221927123867751649, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221927123867751649, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1285994837861598932, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1656,6 +1772,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1308302221705735138, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1316093465327219938, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -1664,9 +1784,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 1352992596349648082, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1402664107011649053, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408419349212947965, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1429578152130729611, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1696,6 +1824,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Piedra
       objectReference: {fileID: 0}
+    - target: {fileID: 1548557613428502080, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1558530282486804657, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -1720,6 +1852,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1640979476211321489, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1643815310299043331, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1728,13 +1864,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1652870162274152842, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1687694325228997510, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 1706648170677092043, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1748640239232527688, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769148251896988474, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1773789883822995253, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1743,6 +1891,10 @@ PrefabInstance:
     - target: {fileID: 1775758074945659313, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814380962158139247, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1818384573137300397, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1772,6 +1924,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2031492211872361279, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2032033531817139048, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1792,13 +1948,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 2098548370172621254, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2125544701604487753, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2139379476550089228, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2152808409634258218, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152808409634258218, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2181489828140081040, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1808,9 +1976,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2197707107986607239, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273812689174105743, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2289634200814184284, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2364769140083597099, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2416620542442799671, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1819,6 +1999,10 @@ PrefabInstance:
     - target: {fileID: 2422769068569008758, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451073691381649312, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2459216607973148757, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1831,6 +2015,10 @@ PrefabInstance:
     - target: {fileID: 2476890940043285458, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548159252542619873, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2553652370142760151, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1880,6 +2068,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2675877169032937583, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701547266965376300, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710933276642907294, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2714461552859506835, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -1887,6 +2087,10 @@ PrefabInstance:
     - target: {fileID: 2756613202285543217, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756613202285543217, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2800227548692292798, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1900,6 +2104,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2840089559662562745, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890281533067463527, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2894075815186821046, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1911,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 2905573743598448371, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913785113760447958, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2938879708702180983, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1940,6 +2156,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 2998696509270334036, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3123178322866002280, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -1952,6 +2172,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 3157901890037513708, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3182127973489772209, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -1960,13 +2184,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 3198691505945851853, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3202297762062445664, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 3206901783523108356, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3215299153306238481, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3252033268413772369, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3284010189029643118, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -1996,6 +2232,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 3476672451365525209, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3482526733199295851, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2004,9 +2244,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 3488774547009712506, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3500885789276161056, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519026906133570792, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3534515905984960463, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2016,9 +2264,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 3568126496490324776, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575338120367627385, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3613213466128299519, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613213466128299519, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3703103294730878773, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2039,6 +2299,10 @@ PrefabInstance:
     - target: {fileID: 3843229088646257260, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843229088646257260, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3869397084335468699, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2064,9 +2328,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 4093419140668241617, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4094687752117534243, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094687752117534243, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4116261383574213903, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2079,6 +2351,14 @@ PrefabInstance:
     - target: {fileID: 4201474292688444543, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201474292688444543, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223333631084355908, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4265762326229899278, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2112,9 +2392,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 4361157590086365014, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393344520805499085, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395465983848118479, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4417018996374846358, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417018996374846358, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4418062612790671541, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2172,6 +2468,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 4742452001259221700, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4762940163910922477, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2179,6 +2479,10 @@ PrefabInstance:
     - target: {fileID: 4767367612033332860, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785329851949962773, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4799502829160990304, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2188,9 +2492,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 4828489362876637775, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4828606385302173498, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831951542728439684, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4852718447876530516, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2199,6 +2511,14 @@ PrefabInstance:
     - target: {fileID: 4909886682600385920, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909886682600385920, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924737013036992613, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4994296861627042556, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2220,17 +2540,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5072444067041295153, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5074375488968056918, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074375488968056918, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5076912922160319533, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5081472111572907878, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5104210670998045845, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134313501266399966, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5137825970006779850, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2240,13 +2576,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 5157755753844983878, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5171620279878889873, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5171620279878889873, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5179111024841256640, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179111024841256640, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5181976432160838457, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2260,6 +2608,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5232137549825931195, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5263853211224461005, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2267,6 +2619,14 @@ PrefabInstance:
     - target: {fileID: 5272610469540843505, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281959102128169390, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310461503304478018, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5317411342558122050, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2304,6 +2664,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 5577078174789818914, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5579446985362752307, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2312,6 +2676,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 5584744847248346091, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5589948796641363671, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2319,6 +2687,10 @@ PrefabInstance:
     - target: {fileID: 5609717634894445461, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662662080031841081, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5665895833630680884, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2348,6 +2720,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 5825823289088199030, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5865327125092957615, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2368,6 +2744,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 5991332833420138512, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6008556604144913055, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2375,6 +2755,10 @@ PrefabInstance:
     - target: {fileID: 6036025670933018998, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036025670933018998, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6037608709349814008, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2420,13 +2804,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 6337942372188067437, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6340636526683200342, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 6374860882665423003, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6391707514282317733, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415996303717783732, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6456057694890089407, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2439,6 +2835,10 @@ PrefabInstance:
     - target: {fileID: 6471781898387273157, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_LocalPosition.z
       value: 21.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472388618030928844, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6516547023212345526, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2460,6 +2860,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 6579593496774652304, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6605018894308838197, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2480,17 +2884,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 6677830045311360422, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6717719127055108766, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740637162470786906, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6771584697209007394, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 6771584697209007394, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6772884910660916512, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772884910660916512, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6780374360246839956, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2524,6 +2944,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 7086459028447323910, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7113776561040184688, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Piedra
@@ -2544,6 +2968,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 7236026358125007508, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7256535782057292370, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -2556,6 +2984,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 7310950347253495837, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7312457844018806598, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2564,9 +2996,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 7336605420255971349, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7351181161331090837, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388630756873513339, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7414158762680615559, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2576,6 +3016,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 7505037913432962609, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7511228122896449009, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2583,6 +3027,10 @@ PrefabInstance:
     - target: {fileID: 7512327658903056857, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566230969035402445, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7579652349448364765, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2600,6 +3048,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 7626101300290151271, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7722640381924106212, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2607,6 +3059,14 @@ PrefabInstance:
     - target: {fileID: 7761116381869820453, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817763891569435303, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829225739404552671, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7847332367416797980, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2620,6 +3080,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 7940212871478836672, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7945729890999061011, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2631,6 +3095,10 @@ PrefabInstance:
     - target: {fileID: 7981430421497785742, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990411162152190203, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8079562067557476849, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2652,13 +3120,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8199627853232889861, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8201289027939373480, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 8201289027939373480, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8207942523798175745, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211438476094421262, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8217236221258165483, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2668,6 +3148,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8281120379404362677, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298390319318664717, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8309958085982534006, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
@@ -2676,9 +3164,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 8333550254044148684, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8336241330403652031, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341359217544353934, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8408310499200318757, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2699,6 +3195,10 @@ PrefabInstance:
     - target: {fileID: 8426830483310436387, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426830483310436387, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8441909905649234763, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2732,6 +3232,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8630064381135169406, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8639832209019477055, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2743,6 +3247,10 @@ PrefabInstance:
     - target: {fileID: 8642943494092561509, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642943494092561509, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8649237268443197036, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2756,13 +3264,29 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 8703504230368062281, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712141447958912867, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8724853805531624365, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8736367244463063713, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8758530411774783189, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758530411774783189, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8777140600997423113, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2780,6 +3304,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 8890579771547401175, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8902580636770434239, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2788,13 +3316,29 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8943657828376468521, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8967568806406248010, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 8967845716537479274, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8985052597373048803, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985052597373048803, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998618806198816965, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9020731868662013206, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2804,6 +3348,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 9035806496664711048, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9040189144387630884, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2812,6 +3360,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Madera
       objectReference: {fileID: 0}
+    - target: {fileID: 9074153448153207708, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124123823974286107, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9134136732529261989, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Madera
@@ -2819,6 +3375,10 @@ PrefabInstance:
     - target: {fileID: 9135196156736679019, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135196156736679019, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9155479439992719318, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
@@ -2836,9 +3396,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: mapa mati
       objectReference: {fileID: 0}
+    - target: {fileID: 9178264308604798322, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9186807844429422952, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
       value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186807844429422952, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9210210073787637248, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_TagString
