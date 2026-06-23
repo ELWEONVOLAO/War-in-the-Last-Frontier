@@ -6,18 +6,31 @@ public class PlayerMotor : MonoBehaviourPun
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private float speed = 5f;
+
+    [Header("Configuración de Movimiento")]
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 8.5f; // <-- Velocidad al correr
+    private float currentSpeed;      // <-- Velocidad actual del jugador
+
     private bool isGrounded;
     public float gravity = -9.8f;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 1.2f;  // <-- Reducido de 3f a 1.2f para un salto rápido y táctico
 
-    //Photon
+    [Header("Photon & UI")]
     public GameObject fpCamera;
-    public GameObject minimapCamera; 
+    public GameObject minimapCamera;
     public TextMeshPro nameText;
+
+    [Header("UI del Jugador")]
+    public GameObject hudCombate;
     void Start()
     {
+        if (hudCombate != null)
+        {
+            hudCombate.SetActive(photonView.IsMine);
+        }
         controller = GetComponent<CharacterController>();
+        currentSpeed = walkSpeed; // Empezamos caminando por defecto
 
         //Camera
         fpCamera.SetActive(photonView.IsMine);
@@ -29,17 +42,12 @@ public class PlayerMotor : MonoBehaviourPun
         nameText.gameObject.SetActive(!photonView.IsMine);
         nameText.text = photonView.Owner != null ? photonView.Owner.NickName : "Jugador Offline";
 
-        if (UIManager.Instance != null && UIManager.Instance.isGamePaused)
-        {
-            return;
-        }
         if (minimapCamera != null)
         {
             minimapCamera.SetActive(photonView.IsMine);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!photonView.IsMine) return;
@@ -55,8 +63,9 @@ public class PlayerMotor : MonoBehaviourPun
         moveDirection.x = input.x;
         moveDirection.z = input.y;
 
+        // Multiplicamos por currentSpeed en lugar de una velocidad estática
         controller.Move(
-            transform.TransformDirection(moveDirection) * speed * Time.deltaTime
+            transform.TransformDirection(moveDirection) * currentSpeed * Time.deltaTime
         );
 
         playerVelocity.y += gravity * Time.deltaTime;
@@ -74,6 +83,21 @@ public class PlayerMotor : MonoBehaviourPun
         if (isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+        }
+    }
+
+    // ---> NUEVA FUNCIÓN PARA EL NEW INPUT SYSTEM <---
+    public void Sprint(bool isSprinting)
+    {
+        if (!isGrounded) return; // Opcional: Evita que empiece a correr estando en el aire
+
+        if (isSprinting)
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else
+        {
+            currentSpeed = walkSpeed;
         }
     }
 }

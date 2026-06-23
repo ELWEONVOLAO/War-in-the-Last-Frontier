@@ -300,6 +300,7 @@ MonoBehaviour:
   txtWinnerName: {fileID: 1434594336}
   team1Container: {fileID: 1970162061}
   team2Container: {fileID: 1970162060}
+  prefabFilaEncabezado: {fileID: 0}
   playerRowPrefab: {fileID: 4798697063943786815, guid: 626bd47806b6c1e4cb040da5574ea369, type: 3}
   scoreboardPanel: {fileID: 1970162059}
   pausePanel: {fileID: 1577630832}
@@ -1443,9 +1444,393 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16503341149910735, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 47127773829511892, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 58236220204723144, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 69596338846821458, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 108797143205951317, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 179307679653045766, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 181009434229690493, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 205035915013687738, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 225289333391551515, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 241473677884787433, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 321019376722007538, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 334401374402576058, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 348715002305754770, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 356800190204586927, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 369914105104572353, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 382896351202474990, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 392838988230766734, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 432815920969407855, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 439063143046776798, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 444250580774257370, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 463435292802320232, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 475877009914364491, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 477425143718282172, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 492352552166348892, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 500828166943094797, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 517224488470826965, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 569859199145110409, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 576862132112605474, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 590069954906170441, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 603518749507045659, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 623360248389736692, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 631639103689289459, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 659368116649384926, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 715808657658126465, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 734015277330445286, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 758734252862494558, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 778975800175606795, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 786080576673457838, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 844055865026756212, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 873650018211447083, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 979359188191081470, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 983812919338058800, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061952659696890507, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084334381404694547, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109278725139871654, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109752020029124425, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177440521625919064, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208260662542075035, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221927123867751649, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285994837861598932, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295326122827139355, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298069094849736971, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308302221705735138, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316093465327219938, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343022359589152229, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402664107011649053, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429578152130729611, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430415366801485001, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433352668581018442, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453925941568718477, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486905510829139957, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519063441436692179, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542690259567095171, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558530282486804657, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583657752919710595, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585707414467105927, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601635243030283231, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639091847759004162, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640979476211321489, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1643815310299043331, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644864127769042998, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687694325228997510, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748640239232527688, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773789883822995253, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775758074945659313, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818384573137300397, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885265748628602170, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947228552125407455, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959192093833317192, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978720991386477575, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989872085934022654, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995591329850565111, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032033531817139048, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032809851827454876, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064662668407044978, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2065438887636445308, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098548370172621254, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125544701604487753, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152808409634258218, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181489828140081040, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197330720507706460, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289634200814184284, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2416620542442799671, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422769068569008758, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459216607973148757, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475557520901008247, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476890940043285458, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
       objectReference: {fileID: 0}
     - target: {fileID: 2553652370142760151, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1487,6 +1872,106 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2606322691926650053, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671012028514806504, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714461552859506835, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756613202285543217, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800227548692292798, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813728796496421076, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832659341742096683, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894075815186821046, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896077471080285230, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905573743598448371, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938879708702180983, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944542494483261892, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952039634478164881, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971988595798185419, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982246379841001746, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989542396889430501, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993940671199427213, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123178322866002280, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142005925743779662, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144200674537896427, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182127973489772209, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198691505945851853, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202297762062445664, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215299153306238481, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284010189029643118, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
     - target: {fileID: 3312910442042103965, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24
@@ -1495,9 +1980,457 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 21.45
       objectReference: {fileID: 0}
+    - target: {fileID: 3333151946301346070, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346460016330290076, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365187689438650291, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439146076588562242, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482526733199295851, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488774547009712506, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500885789276161056, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534515905984960463, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565429205936381249, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613213466128299519, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703103294730878773, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713417859982352296, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754748178278588282, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838076069451112479, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843229088646257260, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869397084335468699, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899034767573900360, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993551654127633208, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4070137522295368215, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090147327636957786, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093419140668241617, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094687752117534243, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116261383574213903, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168732540728931417, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201474292688444543, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265762326229899278, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277572888896526631, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 4296221188038301558, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312327414374806029, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318132305148463041, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344012917025421637, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347002287422039572, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361157590086365014, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417018996374846358, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418062612790671541, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434037259003800022, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463665038429940916, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544538032817241714, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563397734389176557, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616724057691287861, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649947803078886470, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673327320418932825, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683724165930550876, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702342609392684410, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702772093263386427, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730684398192819502, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740794442088827284, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742452001259221700, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762940163910922477, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767367612033332860, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799502829160990304, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828489362876637775, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828606385302173498, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4852718447876530516, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909886682600385920, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994296861627042556, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007540552476975873, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022915629072955502, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052220610909532949, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072444067041295153, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5074375488968056918, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076912922160319533, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104210670998045845, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137825970006779850, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157755753844983878, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171620279878889873, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179111024841256640, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181976432160838457, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205789781963897467, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232137549825931195, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263853211224461005, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272610469540843505, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317411342558122050, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323476277478948149, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408019143936118268, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411421950912369982, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438935351253381292, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459296843666502229, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509854789176960231, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540191776478969784, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555835599403827921, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579446985362752307, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584744847248346091, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589948796641363671, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609717634894445461, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665895833630680884, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675391829387742697, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677209351459942726, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695059372872427112, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736945320931530651, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777435867958591213, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800507523236191798, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865327125092957615, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915195023018949685, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930211455496170253, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978856918768878542, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990820822220525162, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008556604144913055, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036025670933018998, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037608709349814008, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063199012387940222, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6084092879667060088, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089939085035104318, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093389967467904434, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135455191088540514, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6211355836700408850, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213778627321546416, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223837890584303158, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268246297522894653, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313417486042816032, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340636526683200342, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391707514282317733, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456057694890089407, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
       objectReference: {fileID: 0}
     - target: {fileID: 6471781898387273157, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1507,17 +2440,409 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 21.45
       objectReference: {fileID: 0}
+    - target: {fileID: 6516547023212345526, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6530292430067396563, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537798851641553026, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557797834563609971, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569000084906001958, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605018894308838197, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6618058917915754736, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683953729604641, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649155054892813844, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659832925308998941, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6717719127055108766, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771584697209007394, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772884910660916512, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780374360246839956, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810340376320430724, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917715125590307274, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936936267255144937, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004514213576686430, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046887263477871950, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053013323481709306, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077335461507070088, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113776561040184688, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132496954967426132, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137066644546749444, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179784415759331881, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225358518712974108, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256535782057292370, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271504092257886162, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310010693329791297, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312457844018806598, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336605420255971349, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351181161331090837, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414158762680615559, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458549773691736843, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
     - target: {fileID: 7511228122896449009, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7512327658903056857, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579652349448364765, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608575172283678305, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622189271121316960, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626101300290151271, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722640381924106212, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761116381869820453, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847332367416797980, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7889606963116566472, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940212871478836672, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945729890999061011, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959122680498321779, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981430421497785742, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8079562067557476849, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150101227509080887, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170588250036491293, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178090962839285068, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199627853232889861, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201289027939373480, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207942523798175745, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217236221258165483, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218819014580651959, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309958085982534006, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333550254044148684, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336241330403652031, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408310499200318757, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411530049457956117, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424674491721587153, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426321935664773324, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426830483310436387, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441909905649234763, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442629599316763918, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491402118084820970, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508245223696880393, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513291397603181423, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530042208362827918, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596498656720321333, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602492459835777319, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639832209019477055, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641054827765264279, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642943494092561509, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649237268443197036, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670311130936512220, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698087649428493911, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724853805531624365, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758530411774783189, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777140600997423113, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788466824554161083, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790176342115049191, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890579771547401175, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 8902580636770434239, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934646793172967184, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967568806406248010, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985052597373048803, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020731868662013206, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035806496664711048, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040189144387630884, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041066963335811540, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134136732529261989, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135196156736679019, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155479439992719318, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160704796307135130, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174538151800659961, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Madera
+      objectReference: {fileID: 0}
     - target: {fileID: 9178264308604798322, guid: 1cf46c837b413234aad926f75853de23, type: 3}
       propertyPath: m_Name
       value: mapa mati
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186807844429422952, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210210073787637248, guid: 1cf46c837b413234aad926f75853de23, type: 3}
+      propertyPath: m_TagString
+      value: Piedra
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

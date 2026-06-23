@@ -20,22 +20,22 @@ public class Weapon : MonoBehaviour
 
     [Header("--- TIPO DE ARMA ---")]
     public bool esEscopeta = false;
-    public int cantidadPerdigones = 8; // Solo se usa si es escopeta
-    public float dispersion = 0.05f;   // Nivel de apertura de las balas
+    public int cantidadPerdigones = 8;
+    public float dispersion = 0.05f;
 
     [Header("--- SNIPER SCOPE ---")]
     public bool esSniper = false;
-    public GameObject modeloArma3D;    // Para ocultar el arma al apuntar
-    public GameObject miraOverlayUI;   // La imagen negra de la mira telescópica (Canvas)
+    public GameObject modeloArma3D;
+    public GameObject miraOverlayUI;
     public float fovNormal = 60f;
     public float fovApuntando = 15f;
     private bool estaApuntando = false;
 
-    [Header("Visuales")]
+    [Header("UI Local y Visuales")]
+    public TextMeshProUGUI ammoText; // <-- Vuelve a estar en el arma
     public GameObject efectoMetal;
     public ParticleSystem casingParticles;
     public Transform cameraTransform;
-    public TextMeshProUGUI ammoText;
     public LineRenderer bulletTracer;
     public float tracerDuration = 0.05f;
 
@@ -44,31 +44,60 @@ public class Weapon : MonoBehaviour
     private bool isReloading;
     private Camera mainCamera;
 
+    [Header("Efectos de Impacto")]
+    public GameObject impactoMetal;
+    public GameObject impactoMadera;
+    public GameObject impactoPiedra;
+    public GameObject impactoArena;
+    public GameObject impactoCarne;
+    public GameObject impactoPorDefecto;
+
+    [Header("Efectos del Arma")]
+    public GameObject muzzleFlashPrefab;
+    public Transform puntoDisparo;
+
+    // El freno de seguridad multijugador
+    private PhotonView pv;
+
     void Start()
     {
+        // Buscamos a quién le pertenece este brazo
+        pv = GetComponentInParent<PhotonView>();
+
         currentAmmo = maxAmmo;
         if (bulletTracer != null) bulletTracer.enabled = false;
         if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
         mainCamera = cameraTransform.GetComponent<Camera>();
-        UpdateAmmoUI();
+
+        // Solo la actualizamos si somos nosotros
+        if (pv != null && pv.IsMine) UpdateAmmoUI();
     }
 
     void Update()
     {
+        // ---> FRENO MULTIJUGADOR CRÍTICO <---
+        // Si el arma es de otro jugador, ignoramos todo su Update
+        if (pv != null && !pv.IsMine) return;
+
         if (isReloading) return;
         if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
-        // --- Lógica del Sniper Scope ---
-        if (esSniper && Mouse.current.rightButton.wasPressedThisFrame)
+        // --- LÓGICA DEL SNIPER (MANTENER Y SOLTAR) ---
+        if (esSniper)
         {
-            ToggleScope();
+            if (Mouse.current.rightButton.wasPressedThisFrame && !estaApuntando)
+            {
+                StartCoroutine(EfectoZoomSniper(true));
+            }
+            else if (Mouse.current.rightButton.wasReleasedThisFrame && estaApuntando)
+            {
+                StartCoroutine(EfectoZoomSniper(false));
+            }
         }
 
-        // --- Lógica de Disparo ---
         timeUntilAllowNextShot = math.max(0, timeUntilAllowNextShot - Time.deltaTime);
 
-        // Si no es automática (Sniper o Escopeta), disparamos por clic. Si es automática (Rifle), mantenemos presionado.
         bool intentoDisparo = (esSniper || esEscopeta) ? Mouse.current.leftButton.wasPressedThisFrame : Mouse.current.leftButton.isPressed;
 
         if (intentoDisparo && timeUntilAllowNextShot <= 0)
@@ -94,14 +123,24 @@ public class Weapon : MonoBehaviour
         UpdateAmmoUI();
         if (casingParticles != null) casingParticles.Emit(1);
 
-        // Si es escopeta disparamos varios rayos, si no, solo 1.
+        if (muzzleFlashPrefab != null && puntoDisparo != null)
+        {
+            // Lo creamos exactamente en la punta del cañón
+            GameObject flash = Instantiate(muzzleFlashPrefab, puntoDisparo.position, puntoDisparo.rotation);
+
+            // Lo hacemos "hijo" del cañón para que, si te mueves rápido, el fuego viaje pegado al arma
+            flash.transform.SetParent(puntoDisparo);
+
+            // Lo destruimos automáticamente medio segundo después para no saturar la memoria
+            Destroy(flash, 0.5f);
+        }
+
         int rayosADisparar = esEscopeta ? cantidadPerdigones : 1;
 
         for (int i = 0; i < rayosADisparar; i++)
         {
             Vector3 direccionDisparo = cameraTransform.forward;
 
-            // Aplicamos dispersión (Spread) si la tiene
             if (dispersion > 0)
             {
                 direccionDisparo += new Vector3(
@@ -121,48 +160,65 @@ public class Weapon : MonoBehaviour
 
             if (golpeo)
             {
+                // 1. Lógica de Daño
                 PlayerHealth ph = hit.transform.GetComponentInParent<PlayerHealth>();
                 if (ph != null)
                 {
                     ph.photonView.RPC(nameof(ph.RPC_TakeDamage), ph.photonView.Owner, (int)damagePerShot);
                 }
 
-                if (efectoMetal != null)
+                // 2. Lógica de Efectos Visuales (Materiales)
+                GameObject efectoAInstanciar = impactoPorDefecto; // Efecto base
+
+                if (hit.collider.CompareTag("Metal")) efectoAInstanciar = impactoMetal;
+                else if (hit.collider.CompareTag("Madera")) efectoAInstanciar = impactoMadera;
+                else if (hit.collider.CompareTag("Piedra")) efectoAInstanciar = impactoPiedra;
+                else if (hit.collider.CompareTag("Arena")) efectoAInstanciar = impactoArena;
+                else if (hit.collider.CompareTag("Carne") || hit.collider.CompareTag("Player")) efectoAInstanciar = impactoCarne;
+
+                // 3. Instanciar el efecto en el punto exacto del choque
+                if (efectoAInstanciar != null)
                 {
+                    // Lo separamos 0.02f de la pared para que no se superponga (Z-Fighting)
                     Vector3 pos = hit.point + hit.normal * 0.02f;
-                    Destroy(Instantiate(efectoMetal, pos, Quaternion.LookRotation(hit.normal)), 5f);
+                    Destroy(Instantiate(efectoAInstanciar, pos, Quaternion.LookRotation(hit.normal)), 5f);
                 }
             }
         }
     }
 
-    void ToggleScope()
+    // La función ToggleScope fue eliminada, ahora todo lo hace EfectoZoomSniper directamente
+
+    IEnumerator EfectoZoomSniper(bool apuntar)
     {
-        estaApuntando = !estaApuntando;
+        estaApuntando = apuntar;
 
-        // Ocultamos/Mostramos la interfaz del HUD normal (para que no estorbe)
         if (UIManager.Instance != null && UIManager.Instance.crosshairImage != null)
-            UIManager.Instance.crosshairImage.gameObject.SetActive(!estaApuntando);
+            UIManager.Instance.crosshairImage.gameObject.SetActive(!apuntar);
 
-        if (estaApuntando)
+        if (apuntar)
         {
-            StartCoroutine(EfectoZoomSniper());
+            yield return new WaitForSeconds(0.15f);
+
+            // Freno de seguridad: si el jugador soltó el clic rapidísimo, cancelamos
+            if (!estaApuntando) yield break;
+
+            if (miraOverlayUI != null) miraOverlayUI.SetActive(true);
+
+            // Truco maestro: Achicamos el arma a cero en vez de apagarla para no matar el script
+            if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.zero;
+
+            mainCamera.fieldOfView = fovApuntando;
         }
         else
         {
             if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
-            if (modeloArma3D != null) modeloArma3D.SetActive(true);
+
+            // Devolvemos el arma a su tamaño normal
+            if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.one;
+
             mainCamera.fieldOfView = fovNormal;
         }
-    }
-
-    IEnumerator EfectoZoomSniper()
-    {
-        // Un pequeño retraso para que la animación se vea suave
-        yield return new WaitForSeconds(0.15f);
-        if (miraOverlayUI != null) miraOverlayUI.SetActive(true);
-        if (modeloArma3D != null) modeloArma3D.SetActive(false); // Ocultamos el arma de la pantalla
-        mainCamera.fieldOfView = fovApuntando; // Hacemos zoom
     }
 
     IEnumerator ShowTracer(Vector3 start, Vector3 end)
@@ -176,8 +232,7 @@ public class Weapon : MonoBehaviour
 
     void StartReload()
     {
-        // Si estábamos apuntando con el sniper, quitamos la mira para recargar
-        if (estaApuntando) ToggleScope();
+        if (estaApuntando) StartCoroutine(EfectoZoomSniper(false));
 
         if (isReloading || currentAmmo == maxAmmo || reserveAmmo <= 0) return;
         isReloading = true;
@@ -197,13 +252,22 @@ public class Weapon : MonoBehaviour
 
     void UpdateAmmoUI()
     {
-        if (ammoText == null) return;
-        ammoText.text = isReloading ? "Recargando..." : $"{currentAmmo} / {reserveAmmo}";
+        if (ammoText != null)
+        {
+            // Ahora lo actualiza de forma autónoma, sin depender de la escena
+            ammoText.text = isReloading ? "Recargando..." : $"{currentAmmo} / {reserveAmmo}";
+        }
     }
 
-    // Para el gestor de clases, necesitamos una función que apague la mira si cambiamos de arma rápido
     void OnDisable()
     {
-        if (estaApuntando) ToggleScope();
+        // Si el jugador cambia de arma mientras apunta, restauramos la vista
+        if (estaApuntando)
+        {
+            estaApuntando = false;
+            if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
+            if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.one;
+            if (mainCamera != null) mainCamera.fieldOfView = fovNormal;
+        }
     }
 }

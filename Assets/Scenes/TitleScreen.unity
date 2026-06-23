@@ -691,6 +691,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2782304428347179015, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
     - target: {fileID: 3382858580605591057, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -699,6 +703,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas ultimate
       objectReference: {fileID: 0}
+    - target: {fileID: 4570342679312915298, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
+    - target: {fileID: 4819481790326273961, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
     - target: {fileID: 5192491626990814540, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -715,6 +727,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5735973082523980990, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
     - target: {fileID: 7323515049630474375, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -743,6 +759,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 631384786}
+    - target: {fileID: 7862564425278747531, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: fe27936f1d310d64fa1a0e78632e0054, type: 2}
     - target: {fileID: 8407266729013974281, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

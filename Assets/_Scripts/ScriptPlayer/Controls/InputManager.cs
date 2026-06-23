@@ -15,11 +15,25 @@ public class InputManager : MonoBehaviour
         Play = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
 
-        // Freno para el salto
+        // Lógica para el salto
         Player.Jump.performed += ctx =>
         {
             if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
             Play.Jump();
+        };
+
+        // ---> NUEVA LÓGICA PARA CORRER <---
+        // Cuando presionas el botón (Shift)
+        Player.Sprint.performed += ctx =>
+        {
+            if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
+            Play.Sprint(true);
+        };
+
+        // Cuando sueltas el botón
+        Player.Sprint.canceled += ctx =>
+        {
+            Play.Sprint(false);
         };
     }
 

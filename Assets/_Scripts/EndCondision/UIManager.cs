@@ -25,16 +25,16 @@ public class UIManager : MonoBehaviour
     [Header("Scoreboard Settings")]
     public Transform team1Container;
     public Transform team2Container;
-    public GameObject playerRowPrefab;
 
-    // Panel general del scoreboard que activaremos/desactivaremos
+    public GameObject prefabFilaEncabezado;
+    public GameObject playerRowPrefab;
     public GameObject scoreboardPanel;
 
     [Header("Menú de Pausa y Mira")]
     public GameObject pausePanel;
-    public GameObject settingsPanel; 
-    public UnityEngine.UI.Image crosshairImage; 
-    public Sprite[] crosshairSprites; 
+    public GameObject settingsPanel;
+    public UnityEngine.UI.Image crosshairImage;
+    public Sprite[] crosshairSprites;
     public bool isGamePaused = false;
 
     private void Awake()
@@ -55,10 +55,10 @@ public class UIManager : MonoBehaviour
 
         CargarCrosshairGuardada();
     }
+
     void Update()
     {
-        // Usamos el sistema clásico (Input) para evitar que el EventSystem 
-        // o el Editor de Unity intercepten y bloqueen nuestras teclas.
+        // Usamos el sistema clásico (Input) para evitar que el EventSystem intercepten las teclas.
 
         // Lógica del Scoreboard (Tab)
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -73,28 +73,23 @@ public class UIManager : MonoBehaviour
         // Lógica del Menú de Pausa (Escape)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Si el juego está pausado y el panel de configuraciones está abierto...
             if (isGamePaused && settingsPanel != null && settingsPanel.activeSelf)
             {
-                // Volver de configuraciones al menú de pausa
                 settingsPanel.SetActive(false);
                 pausePanel.SetActive(true);
             }
             else
             {
-                // Entrar o salir del menú de pausa normal
                 TogglePause();
             }
         }
 
-        // LA SOLUCIÓN DE FUERZA BRUTA (Mantenemos esto para evitar el fantasma del clic)
         if (isGamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
     }
-
 
     // ── Llamados desde GameManager ───────────────────────────────
 
@@ -154,28 +149,32 @@ public class UIManager : MonoBehaviour
 
     private void ActualizarScoreboard()
     {
-        // 1. Limpiamos los contenedores para no duplicar la lista
+        // 1. Limpiamos los contenedores de ambos equipos
         foreach (Transform child in team1Container) Destroy(child.gameObject);
         foreach (Transform child in team2Container) Destroy(child.gameObject);
 
-        // 2. Recorremos a todos los jugadores en la sala
+        // 2. CREAMOS EL ENCABEZADO PRIMERO EN AMBAS LISTAS
+        if (prefabFilaEncabezado != null)
+        {
+            Instantiate(prefabFilaEncabezado, team1Container);
+            Instantiate(prefabFilaEncabezado, team2Container);
+        }
+
+        // 3. Recorremos a todos los jugadores y los acomodamos debajo
         foreach (Photon.Realtime.Player p in PhotonNetwork.PlayerList)
         {
             int team = p.CustomProperties.ContainsKey("Team") ? (int)p.CustomProperties["Team"] : 1;
             int kills = p.CustomProperties.ContainsKey("Kills") ? (int)p.CustomProperties["Kills"] : 0;
             int deaths = p.CustomProperties.ContainsKey("Deaths") ? (int)p.CustomProperties["Deaths"] : 0;
 
-            // Leemos el ping (si es el jugador local, lo tomamos directo de Photon para mayor precisión)
             int ping = p.CustomProperties.ContainsKey("Ping") ? (int)p.CustomProperties["Ping"] : 0;
             if (p.IsLocal) ping = PhotonNetwork.GetPing();
 
             Transform targetContainer = (team == 1) ? team1Container : team2Container;
             GameObject row = Instantiate(playerRowPrefab, targetContainer);
 
-            // 3. Asignamos los textos
             TextMeshProUGUI[] textos = row.GetComponentsInChildren<TextMeshProUGUI>();
 
-            // Requerimos que el prefab tenga 4 textos: Nombre, Kills, Deaths, Ping
             if (textos.Length >= 4)
             {
                 textos[0].text = p.NickName;
@@ -183,7 +182,6 @@ public class UIManager : MonoBehaviour
                 textos[2].text = deaths.ToString();
                 textos[3].text = ping.ToString() + " ms";
 
-                // Opcional: Cambiar color del ping (verde si es bueno, rojo si es malo)
                 if (ping < 80) textos[3].color = Color.green;
                 else if (ping < 150) textos[3].color = Color.yellow;
                 else textos[3].color = Color.red;
@@ -200,7 +198,8 @@ public class UIManager : MonoBehaviour
         if (defeatScreen != null) defeatScreen.SetActive(false);
         if (tieScreen != null) tieScreen.SetActive(false);
     }
-    // ── Lógica de Pausa y Mira ───────────────────────────────────
+
+    // ── Lógica de Pausa, Clases y Armas ──────────────────────────
 
     public void TogglePause()
     {
@@ -210,7 +209,6 @@ public class UIManager : MonoBehaviour
 
         if (isGamePaused)
         {
-            // Entramos a pausa: nos aseguramos de que settings esté apagado
             if (settingsPanel != null) settingsPanel.SetActive(false);
 
             Cursor.lockState = CursorLockMode.None;
@@ -220,7 +218,6 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            // Salimos de pausa: cerramos TODOS los menús
             if (settingsPanel != null) settingsPanel.SetActive(false);
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -228,21 +225,19 @@ public class UIManager : MonoBehaviour
             if (crosshairImage != null) crosshairImage.gameObject.SetActive(true);
         }
     }
+
     public void BotonSalirDePartida()
     {
-        // Esto le avisa a Photon que te vas. 
-        // Tu GameManager detectará esto (OnLeftRoom) y cargará la lobby automáticamente.
         PhotonNetwork.LeaveRoom();
     }
+
     public void BotonCambiarClase()
     {
-        // 1. Cerramos el menú de pausa para limpiar la pantalla
         if (isGamePaused)
         {
             TogglePause();
         }
 
-        // 2. Buscamos al jugador local y le ordenamos abrir su selector
         if (ClassSelector.LocalInstance != null)
         {
             ClassSelector.LocalInstance.AbrirMenuDeClases();
@@ -251,8 +246,6 @@ public class UIManager : MonoBehaviour
 
     public void CargarCrosshairGuardada()
     {
-        // PlayerPrefs nos permite guardar datos en el PC del jugador.
-        // Aquí leemos qué índice de mira guardó (por defecto 0).
         int index = PlayerPrefs.GetInt("CrosshairIndex", 0);
 
         if (crosshairImage != null && crosshairSprites.Length > 0 && index < crosshairSprites.Length)
