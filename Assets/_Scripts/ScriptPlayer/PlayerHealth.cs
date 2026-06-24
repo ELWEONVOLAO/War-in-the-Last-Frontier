@@ -7,60 +7,70 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviourPun
 {
-    [Header("health set up")]
+    [Header("Health Set Up")]
     public int maxHealth;
 
-    [Header("ui set up")]
-    public TextMeshProUGUI healthText;
-    public Image healthFillImage;
+
+    [Header("Efecto de Daño")]
+    public Image pantallaRojaDaño; // <-- Nueva variable para el flash rojo
 
     private int health;
+    private bool isDead = false;
 
-    // Agregar en Start()
     void Start()
     {
         health = maxHealth;
 
-        if (photonView.IsMine)
-        {
-            // Solo activa la UI para el jugador local
-            UpdateUi();
-        }
-        else
-        {
-            // Oculta todo el canvas del jugador remoto
-            healthText.gameObject.SetActive(false);
-            healthFillImage.gameObject.SetActive(false);
-        }
     }
 
-    private void UpdateUi()
-    {
-        if (healthText != null)
-            healthText.text = $"{health} / {maxHealth}";
-
-        if (healthFillImage != null)
-            healthFillImage.fillAmount = (float)health / maxHealth;
-    }
-
-    private bool isDead = false;  // ← agregar variable
+ 
 
     [PunRPC]
     public void RPC_TakeDamage(int _damage)
     {
-        if (isDead) return;  // ← evita múltiples llamadas a Die()
+        if (isDead) return;
 
         health = math.max(0, health - _damage);
         Debug.Log("Vida actual: " + health);
 
         if (photonView.IsMine)
-            UpdateUi();
+        {
+
+            // Disparamos el efecto visual
+            if (pantallaRojaDaño != null)
+            {
+                StopCoroutine(EfectoFlashRojo()); // Detenemos el anterior por si te disparan muy rápido
+                StartCoroutine(EfectoFlashRojo());
+            }
+        }
 
         if (health <= 0)
         {
             isDead = true;
             Die();
         }
+    }
+
+    // Esta corrutina hace el efecto de aparecer y desvanecer
+    IEnumerator EfectoFlashRojo()
+    {
+        // 1. Ponemos la imagen roja casi a la mitad de opacidad (Alfa: 0.4f)
+        pantallaRojaDaño.color = new Color(1f, 0f, 0f, 0.4f);
+
+        // 2. Esperamos una fracción de segundo para que el impacto se note
+        yield return new WaitForSeconds(0.05f);
+
+        // 3. Vamos bajando la opacidad lentamente hasta que vuelva a ser transparente (0)
+        float alpha = 0.4f;
+        while (alpha > 0f)
+        {
+            alpha -= Time.deltaTime; // Se desvanece en aprox 0.4 segundos
+            pantallaRojaDaño.color = new Color(1f, 0f, 0f, alpha);
+            yield return null; // Espera al siguiente frame
+        }
+
+        // Nos aseguramos de que quede 100% invisible al final
+        pantallaRojaDaño.color = Color.clear;
     }
 
     void Die()
@@ -76,52 +86,9 @@ public class PlayerHealth : MonoBehaviourPun
         int myTeam = PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Team")
             ? (int)PhotonNetwork.LocalPlayer.CustomProperties["Team"] : 1;
 
-        Debug.Log("Mi equipo: " + myTeam);
-        Debug.Log("GameManager existe: " + (GameManager.Instance != null));
-
         GameManager.Instance?.RegisterDeath(myTeam);
 
         PlayerSpawner.Instance.RespawnPlayer(2f);
         PhotonNetwork.Destroy(gameObject);
-    }
-    /*
-    void Die()
-    {
-        // Avisar al GameManager quién mató
-        // (necesitas saber el equipo del que mató, se hace desde Weapon)
-            Debug.Log(photonView.Owner.NickName + " murió");
-
-            if (photonView.IsMine)
-            {
-                PhotonNetwork.Destroy(gameObject);
-
-                Invoke(nameof(Respawn), 2f);
-            }
-    }
-    */
-    /*
-    void Die()
-    {
-        Debug.Log(photonView.Owner.NickName + " murió");
-
-        if (!photonView.IsMine)
-            return;
-
-        StartCoroutine(RespawnRoutine());
-    }
-    */
-    /*
-    void Respawn()
-    {
-        FindFirstObjectByType<PlayerSpawner>().SendMessage("SpawnMyPlayer");
-    }
-    */
-    IEnumerator RespawnRoutine()
-    {
-        PhotonNetwork.Destroy(gameObject);
-
-        yield return new WaitForSeconds(2f);
-
-        PlayerSpawner.Instance.SpawnMyPlayer();
     }
 }

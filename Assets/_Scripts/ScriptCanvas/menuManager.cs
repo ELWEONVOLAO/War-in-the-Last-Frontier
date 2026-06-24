@@ -28,7 +28,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public TMP_InputField inputNombreSala;
     public TextMeshProUGUI textoEstadoGlobal;
 
-    // ---> ¡AQUÍ ESTÁ TU NUEVA VARIABLE! <---
     public TextMeshProUGUI textoNombreSalaActual;
 
     [Header("--- LISTA DINAMICA DE SALAS ---")]
@@ -70,13 +69,10 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        // 1. Configuramos Photon lo antes posible
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        // 2. Nos conectamos en el Awake si no estamos conectados
         if (!PhotonNetwork.IsConnected)
         {
-            // Cargamos el nombre guardado súper rápido
             if (PlayerPrefs.HasKey("NombreJugadorGuardado"))
             {
                 PhotonNetwork.NickName = PlayerPrefs.GetString("NombreJugadorGuardado");
@@ -86,16 +82,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
                 PhotonNetwork.NickName = "Jugador_" + Random.Range(1000, 9999);
             }
 
-            // Lanzamos la conexión al Master Server
             PhotonNetwork.ConnectUsingSettings();
         }
     }
 
     void Start()
     {
-        // El Start se encarga EXCLUSIVAMENTE de la interfaz gráfica y los paneles,
-        // porque aquí ya estamos 100% seguros de que el Canvas y los botones existen.
-
         if (GameManager.retornarAlMenuSala)
         {
             panelMenu.SetActive(false);
@@ -111,7 +103,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
             VolverAlMenu();
         }
 
-        // Actualizamos los textos visuales según el estado de Photon
         if (PhotonNetwork.IsConnected)
         {
             if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectado. Buscando partidas...";
@@ -132,10 +123,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         if (inputNombreJugador != null && !string.IsNullOrEmpty(inputNombreJugador.text))
         {
-            // Asignamos el nombre a Photon
             PhotonNetwork.NickName = inputNombreJugador.text;
-
-            // GUARDAMOS EL NOMBRE EN LA MEMORIA DEL PC
             PlayerPrefs.SetString("NombreJugadorGuardado", inputNombreJugador.text);
             PlayerPrefs.Save();
         }
@@ -146,25 +134,39 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void configuraciones() { panelConfiguraciones.SetActive(true); panelMenu.SetActive(false); }
 
+    // ---> CAMBIO 1: El botón de volver ya no reactiva el menú de inmediato si venimos de una sala <---
     public void VolverAlMenu()
     {
-        if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
 
-        panelMenu.SetActive(true);
-        panelConfiguraciones.SetActive(false);
-        panelSalas.SetActive(false);
-        panelJuego.SetActive(false);
-        panelSalaJuego.SetActive(false);
+            if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Saliendo de la sala...";
+
+            // Apagamos TODOS los paneles para evitar que el jugador haga clic antes de llegar al Lobby
+            panelMenu.SetActive(false);
+            panelConfiguraciones.SetActive(false);
+            panelSalas.SetActive(false);
+            panelJuego.SetActive(false);
+            panelSalaJuego.SetActive(false);
+        }
+        else
+        {
+            // Si NO estábamos en una sala, volvemos al menú normalmente al instante
+            panelMenu.SetActive(true);
+            panelConfiguraciones.SetActive(false);
+            panelSalas.SetActive(false);
+            panelJuego.SetActive(false);
+            panelSalaJuego.SetActive(false);
+        }
     }
 
     public void Salir() => Application.Quit();
 
     public void CrearSala()
     {
-        // 1. Avisamos por consola que apretamos el botón
         Debug.Log("Intentando crear sala...");
 
-        // 2. Comprobamos que el input no esté vacío
         if (inputNombreSala == null || string.IsNullOrEmpty(inputNombreSala.text))
         {
             Debug.LogWarning("El nombre de la sala está vacío.");
@@ -172,7 +174,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        // 3. Comprobamos que Photon esté conectado
         if (!PhotonNetwork.IsConnectedAndReady)
         {
             Debug.LogWarning("Photon aún no está listo.");
@@ -180,19 +181,17 @@ public class MenuManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        // 4. Si todo está bien, creamos la sala
         if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Creando sala...";
         RoomOptions opciones = new RoomOptions { MaxPlayers = 10 };
         PhotonNetwork.CreateRoom(inputNombreSala.text, opciones);
     }
 
     public void UnirseASalaEspecifica() { panelJuego.SetActive(false); panelSalas.SetActive(true); }
+
     public void UnirseASalaAleatoria()
     {
-        // 1. Evitamos bugs si el jugador ya está en una sala y apretó el botón por error
         if (PhotonNetwork.InRoom) return;
 
-        // 2. Comprobamos que Photon esté listo para recibir el comando
         if (PhotonNetwork.IsConnectedAndReady)
         {
             if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Buscando sala aleatoria...";
@@ -206,7 +205,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        // Si no encontró ninguna sala aleatoria disponible, creamos una nueva.
         if (textoEstadoGlobal != null) textoEstadoGlobal.text = "No hay salas disponibles. Creando una nueva...";
 
         RoomOptions opciones = new RoomOptions { MaxPlayers = 10 };
@@ -217,6 +215,19 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         if (textoEstadoGlobal != null) textoEstadoGlobal.text = "Conectado. Buscando partidas...";
         PhotonNetwork.JoinLobby();
+    }
+
+    // ---> CAMBIO 2: Añadida la señal de confirmación al entrar al Lobby <---
+    public override void OnJoinedLobby()
+    {
+        if (textoEstadoGlobal != null) textoEstadoGlobal.text = "¡Conectado al servidor principal!";
+
+        // Verificamos si todos los paneles estaban apagados (porque estábamos saliendo de una sala)
+        if (!panelMenu.activeSelf && !panelConfiguraciones.activeSelf && !panelSalas.activeSelf && !panelJuego.activeSelf && !panelSalaJuego.activeSelf)
+        {
+            // Ahora sí, es 100% seguro mostrar el menú
+            panelMenu.SetActive(true);
+        }
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -247,7 +258,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
         panelSalas.SetActive(false);
         panelSalaJuego.SetActive(true);
 
-        // ---> ¡NUEVO: AQUÍ MOSTRAMOS EL NOMBRE DE LA SALA! <---
         if (textoNombreSalaActual != null)
         {
             textoNombreSalaActual.text = "SALA: " + PhotonNetwork.CurrentRoom.Name;
@@ -331,6 +341,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
         pingLabels.Clear();
         indiceMapa1 = -1;
         indiceMapa2 = -1;
+
+        Debug.Log("Saliendo de la sala... Esperando reconexión al Master Server.");
     }
 
     void AsignarEquipoAutomatico()

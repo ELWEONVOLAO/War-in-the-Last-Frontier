@@ -56,6 +56,11 @@ public class Weapon : MonoBehaviour
     public GameObject muzzleFlashPrefab;
     public Transform puntoDisparo;
 
+    [Header("Sonidos (SFX)")]
+    public AudioSource audioSourceArma;
+    public AudioClip sfxDisparo;
+    public AudioClip sfxCasquillo;
+
     // El freno de seguridad multijugador
     private PhotonView pv;
 
@@ -122,6 +127,21 @@ public class Weapon : MonoBehaviour
         currentAmmo--;
         UpdateAmmoUI();
         if (casingParticles != null) casingParticles.Emit(1);
+       
+        // ---> NUEVO: SONIDO DE DISPARO <---
+        if (audioSourceArma != null && sfxDisparo != null)
+        {
+            // PlayOneShot permite que si disparas muy rápido, los sonidos se superpongan natural y no se corten
+            audioSourceArma.PlayOneShot(sfxDisparo);
+        }
+
+        if (casingParticles != null) casingParticles.Emit(1);
+
+        // ---> NUEVO: SONIDO DE CASQUILLO <---
+        if (sfxCasquillo != null)
+        {
+            StartCoroutine(SonidoCasquilloDelay());
+        }
 
         if (muzzleFlashPrefab != null && puntoDisparo != null)
         {
@@ -268,6 +288,17 @@ public class Weapon : MonoBehaviour
             if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
             if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.one;
             if (mainCamera != null) mainCamera.fieldOfView = fovNormal;
+        }
+    }
+    // Hacemos que el casquillo suene medio segundo después del disparo
+    // para dar la sensación realista de que voló por el aire y cayó al suelo.
+    IEnumerator SonidoCasquilloDelay()
+    {
+        yield return new WaitForSeconds(0.4f);
+        if (audioSourceArma != null && sfxCasquillo != null)
+        {
+            // Le bajamos un poco el volumen (0.4f) para que no sea más fuerte que el disparo
+            audioSourceArma.PlayOneShot(sfxCasquillo, 0.4f);
         }
     }
 }

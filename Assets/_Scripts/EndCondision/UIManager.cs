@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        HideAll();
+        ShowHUD();
         if (scoreboardPanel != null) scoreboardPanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
 

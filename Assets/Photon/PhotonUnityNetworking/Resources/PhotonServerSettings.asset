@@ -49,6 +49,8 @@ MonoBehaviour:
   - RPC_SincronizarTaladro
   - RPC_EndMatch
   - RPC_RegisterDeath
+  - RPC_ActivarZona
+  - RPC_CambiarEstadoZona
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
