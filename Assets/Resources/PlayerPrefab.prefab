@@ -1583,7 +1583,7 @@ MonoBehaviour:
   walkSpeed: 5
   sprintSpeed: 8.5
   gravity: -9.8
-  jumpHeight: 3
+  jumpHeight: 1.5
   fpCamera: {fileID: 6604540745989882857}
   minimapCamera: {fileID: 6000126440961191494}
   nameText: {fileID: 8077399874643811763}
