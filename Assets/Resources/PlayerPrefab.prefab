@@ -2875,6 +2875,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 658a5c4b94bc50946b800275110c4a14, type: 3}
     - target: {fileID: 3583092337107380067, guid: 967738559bcd2f64cb545c15e7e56e99, type: 3}
+      propertyPath: bulletTracer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583092337107380067, guid: 967738559bcd2f64cb545c15e7e56e99, type: 3}
       propertyPath: miraOverlayUI
       value: 
       objectReference: {fileID: 2046990721475572939}
@@ -2890,7 +2894,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6624749542576249981, guid: 967738559bcd2f64cb545c15e7e56e99, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3062,10 +3067,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 272a0d80d42b8714d8442c6623ddb3e1, type: 3}
     - target: {fileID: 3583092337107380067, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
-      propertyPath: bulletTracer
-      value: 
-      objectReference: {fileID: 6990203090051038760}
-    - target: {fileID: 3583092337107380067, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
       propertyPath: miraOverlayUI
       value: 
       objectReference: {fileID: 2046990721475572939}
@@ -3081,7 +3082,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Franco
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4433439349800984012, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3253,10 +3255,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 658a5c4b94bc50946b800275110c4a14, type: 3}
     - target: {fileID: 3583092337107380067, guid: 41fdaf97d9a371c478dd73172ce3974c, type: 3}
-      propertyPath: bulletTracer
-      value: 
-      objectReference: {fileID: 6990203090051038760}
-    - target: {fileID: 3583092337107380067, guid: 41fdaf97d9a371c478dd73172ce3974c, type: 3}
       propertyPath: miraOverlayUI
       value: 
       objectReference: {fileID: 2046990721475572939}
@@ -3272,7 +3270,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistola
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3934794728860493525, guid: 41fdaf97d9a371c478dd73172ce3974c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3444,6 +3443,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d15ea85ca30f8dc438dbc5354c41b4bd, type: 3}
     - target: {fileID: 3583092337107380067, guid: 071ecc0ec6fbd4647b984c8d21e5ff7f, type: 3}
+      propertyPath: bulletTracer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583092337107380067, guid: 071ecc0ec6fbd4647b984c8d21e5ff7f, type: 3}
       propertyPath: miraOverlayUI
       value: 
       objectReference: {fileID: 2046990721475572939}
@@ -3459,7 +3462,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Escopeta
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3835864886411622023, guid: 071ecc0ec6fbd4647b984c8d21e5ff7f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3572,10 +3576,5 @@ AudioSource:
 --- !u!4 &6847043685051747605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 809556747423729082, guid: 071ecc0ec6fbd4647b984c8d21e5ff7f, type: 3}
-  m_PrefabInstance: {fileID: 6069034146815084719}
-  m_PrefabAsset: {fileID: 0}
---- !u!120 &6990203090051038760 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 3835864886411622023, guid: 071ecc0ec6fbd4647b984c8d21e5ff7f, type: 3}
   m_PrefabInstance: {fileID: 6069034146815084719}
   m_PrefabAsset: {fileID: 0}
