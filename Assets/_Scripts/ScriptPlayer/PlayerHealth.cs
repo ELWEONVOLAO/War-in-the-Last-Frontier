@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviourPun
     [Header("Efecto de Daño")]
     public Image pantallaRojaDaño; // <-- Nueva variable para el flash rojo
 
-    private int health;
+    public int health;
     private bool isDead = false;
 
     void Start()
@@ -72,8 +72,7 @@ public class PlayerHealth : MonoBehaviourPun
         // Nos aseguramos de que quede 100% invisible al final
         pantallaRojaDaño.color = Color.clear;
     }
-
-    void Die()
+void Die()
     {
         Debug.Log("Die() ejecutado en: " + photonView.Owner.NickName);
 
@@ -82,6 +81,14 @@ public class PlayerHealth : MonoBehaviourPun
             Debug.Log("No es mi jugador, saliendo");
             return;
         }
+
+        // ---> NUEVO: GUARDAR LA MUERTE EN LA RED <---
+        int misMuertes = PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Deaths") ? (int)PhotonNetwork.LocalPlayer.CustomProperties["Deaths"] : 0;
+        misMuertes++;
+        ExitGames.Client.Photon.Hashtable hashMuertes = new ExitGames.Client.Photon.Hashtable();
+        hashMuertes.Add("Deaths", misMuertes);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hashMuertes);
+        // ---------------------------------------------
 
         int myTeam = PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Team")
             ? (int)PhotonNetwork.LocalPlayer.CustomProperties["Team"] : 1;

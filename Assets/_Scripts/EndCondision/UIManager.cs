@@ -119,6 +119,11 @@ public class UIManager : MonoBehaviour
     {
         HideAll();
 
+        // ---> SOLUCIÓN AL BUG DEL MOUSE <---
+        // Liberamos el cursor y lo hacemos visible para que puedas clickear los botones
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         if (winnerTeam == 0)
         {
             if (tieScreen != null) tieScreen.SetActive(true);

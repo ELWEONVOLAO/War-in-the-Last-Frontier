@@ -30,14 +30,23 @@ public class Weapon : MonoBehaviour
     public float fovNormal = 60f;
     public float fovApuntando = 15f;
     private bool estaApuntando = false;
+    
+    private Vector3 escalaOriginalArma; 
 
     [Header("UI Local y Visuales")]
-    public TextMeshProUGUI ammoText; // <-- Vuelve a estar en el arma
+    public TextMeshProUGUI ammoText;
     public GameObject efectoMetal;
     public ParticleSystem casingParticles;
     public Transform cameraTransform;
     public LineRenderer bulletTracer;
     public float tracerDuration = 0.05f;
+
+    [Header("--- HITMARKER ---")]
+    public UnityEngine.UI.Image hitmarkerImage;
+    public Color colorHit = Color.white;
+    public Color colorKill = Color.red;
+    public AudioClip sfxHitmarkerNormal; 
+    public AudioClip sfxHitmarkerKill;   
 
     private int currentAmmo;
     private float timeUntilAllowNextShot;
@@ -53,52 +62,45 @@ public class Weapon : MonoBehaviour
     public GameObject impactoPorDefecto;
 
     [Header("Efectos del Arma")]
-    public GameObject muzzleFlashPrefab;
-    public Transform puntoDisparo;
+    [Tooltip("Arrastra aquí el Particle System del fogonazo que ya es hijo de tu arma")]
+    public ParticleSystem fogonazoParticulas; 
 
     [Header("Sonidos (SFX)")]
     public AudioSource audioSourceArma;
     public AudioClip sfxDisparo;
     public AudioClip sfxCasquillo;
 
-    // El freno de seguridad multijugador
     private PhotonView pv;
 
     void Start()
     {
-        // Buscamos a quién le pertenece este brazo
         pv = GetComponentInParent<PhotonView>();
-
         currentAmmo = maxAmmo;
+        
+        if (modeloArma3D != null) escalaOriginalArma = modeloArma3D.transform.localScale;
+        
         if (bulletTracer != null) bulletTracer.enabled = false;
         if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
+        if (hitmarkerImage != null) hitmarkerImage.gameObject.SetActive(false);
+        
         mainCamera = cameraTransform.GetComponent<Camera>();
 
-        // Solo la actualizamos si somos nosotros
         if (pv != null && pv.IsMine) UpdateAmmoUI();
     }
 
     void Update()
     {
-        // ---> FRENO MULTIJUGADOR CRÍTICO <---
-        // Si el arma es de otro jugador, ignoramos todo su Update
         if (pv != null && !pv.IsMine) return;
-
         if (isReloading) return;
         if (UIManager.Instance != null && UIManager.Instance.isGamePaused) return;
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
-        // --- LÓGICA DEL SNIPER (MANTENER Y SOLTAR) ---
         if (esSniper)
         {
             if (Mouse.current.rightButton.wasPressedThisFrame && !estaApuntando)
-            {
                 StartCoroutine(EfectoZoomSniper(true));
-            }
             else if (Mouse.current.rightButton.wasReleasedThisFrame && estaApuntando)
-            {
                 StartCoroutine(EfectoZoomSniper(false));
-            }
         }
 
         timeUntilAllowNextShot = math.max(0, timeUntilAllowNextShot - Time.deltaTime);
@@ -118,42 +120,15 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-            StartReload();
+        if (Keyboard.current.rKey.wasPressedThisFrame) StartReload();
     }
 
     void Disparar()
     {
         currentAmmo--;
         UpdateAmmoUI();
-        if (casingParticles != null) casingParticles.Emit(1);
        
-        // ---> NUEVO: SONIDO DE DISPARO <---
-        if (audioSourceArma != null && sfxDisparo != null)
-        {
-            // PlayOneShot permite que si disparas muy rápido, los sonidos se superpongan natural y no se corten
-            audioSourceArma.PlayOneShot(sfxDisparo);
-        }
-
-        if (casingParticles != null) casingParticles.Emit(1);
-
-        // ---> NUEVO: SONIDO DE CASQUILLO <---
-        if (sfxCasquillo != null)
-        {
-            StartCoroutine(SonidoCasquilloDelay());
-        }
-
-        if (muzzleFlashPrefab != null && puntoDisparo != null)
-        {
-            // Lo creamos exactamente en la punta del cañón
-            GameObject flash = Instantiate(muzzleFlashPrefab, puntoDisparo.position, puntoDisparo.rotation);
-
-            // Lo hacemos "hijo" del cañón para que, si te mueves rápido, el fuego viaje pegado al arma
-            flash.transform.SetParent(puntoDisparo);
-
-            // Lo destruimos automáticamente medio segundo después para no saturar la memoria
-            Destroy(flash, 0.5f);
-        }
+        pv.RPC(nameof(RPC_EfectosArma), RpcTarget.All);
 
         int rayosADisparar = esEscopeta ? cantidadPerdigones : 1;
 
@@ -180,15 +155,29 @@ public class Weapon : MonoBehaviour
 
             if (golpeo)
             {
-                // 1. Lógica de Daño
                 PlayerHealth ph = hit.transform.GetComponentInParent<PlayerHealth>();
                 if (ph != null)
                 {
+                    bool esKill = (ph.maxHealth > 0 && (ph.maxHealth - damagePerShot) <= 0); 
                     ph.photonView.RPC(nameof(ph.RPC_TakeDamage), ph.photonView.Owner, (int)damagePerShot);
+                    
+                    if (pv.IsMine) 
+                    {
+                        StartCoroutine(MostrarHitmarker(esKill));
+                        
+                        if (esKill)
+                        {
+                            int misKills = PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("Kills") ? (int)PhotonNetwork.LocalPlayer.CustomProperties["Kills"] : 0;
+                            misKills++;
+                            
+                            ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
+                            hash.Add("Kills", misKills);
+                            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+                        }
+                    }
                 }
 
-                // 2. Lógica de Efectos Visuales (Materiales)
-                GameObject efectoAInstanciar = impactoPorDefecto; // Efecto base
+                GameObject efectoAInstanciar = impactoPorDefecto;
 
                 if (hit.collider.CompareTag("Metal")) efectoAInstanciar = impactoMetal;
                 else if (hit.collider.CompareTag("Madera")) efectoAInstanciar = impactoMadera;
@@ -196,10 +185,8 @@ public class Weapon : MonoBehaviour
                 else if (hit.collider.CompareTag("Arena")) efectoAInstanciar = impactoArena;
                 else if (hit.collider.CompareTag("Carne") || hit.collider.CompareTag("Player")) efectoAInstanciar = impactoCarne;
 
-                // 3. Instanciar el efecto en el punto exacto del choque
                 if (efectoAInstanciar != null)
                 {
-                    // Lo separamos 0.02f de la pared para que no se superponga (Z-Fighting)
                     Vector3 pos = hit.point + hit.normal * 0.02f;
                     Destroy(Instantiate(efectoAInstanciar, pos, Quaternion.LookRotation(hit.normal)), 5f);
                 }
@@ -207,7 +194,46 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    // La función ToggleScope fue eliminada, ahora todo lo hace EfectoZoomSniper directamente
+   [PunRPC]
+    void RPC_EfectosArma()
+    {
+        if (audioSourceArma != null && sfxDisparo != null)
+            audioSourceArma.PlayOneShot(sfxDisparo);
+
+        // --- ESCUDO ANTI-ERROR ---
+        // Solo intentamos emitir si el objeto realmente existe en la escena
+        if (casingParticles != null && casingParticles.gameObject.scene.IsValid())
+        {
+            casingParticles.Emit(1);
+        }
+
+        if (sfxCasquillo != null)
+            StartCoroutine(SonidoCasquilloDelay());
+
+        if (fogonazoParticulas != null && fogonazoParticulas.gameObject.scene.IsValid())
+        {
+            fogonazoParticulas.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            fogonazoParticulas.Play(true);
+        }
+    }
+
+    IEnumerator MostrarHitmarker(bool esKill)
+    {
+        if (hitmarkerImage != null)
+        {
+            hitmarkerImage.color = esKill ? colorKill : colorHit;
+            hitmarkerImage.gameObject.SetActive(true);
+
+            if (audioSourceArma != null)
+            {
+                AudioClip sonidoATocar = esKill ? sfxHitmarkerKill : sfxHitmarkerNormal;
+                if (sonidoATocar != null) audioSourceArma.PlayOneShot(sonidoATocar, 0.8f);
+            }
+
+            yield return new WaitForSeconds(0.15f);
+            hitmarkerImage.gameObject.SetActive(false);
+        }
+    }
 
     IEnumerator EfectoZoomSniper(bool apuntar)
     {
@@ -220,12 +246,9 @@ public class Weapon : MonoBehaviour
         {
             yield return new WaitForSeconds(0.15f);
 
-            // Freno de seguridad: si el jugador soltó el clic rapidísimo, cancelamos
             if (!estaApuntando) yield break;
 
             if (miraOverlayUI != null) miraOverlayUI.SetActive(true);
-
-            // Truco maestro: Achicamos el arma a cero en vez de apagarla para no matar el script
             if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.zero;
 
             mainCamera.fieldOfView = fovApuntando;
@@ -233,9 +256,7 @@ public class Weapon : MonoBehaviour
         else
         {
             if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
-
-            // Devolvemos el arma a su tamaño normal
-            if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.one;
+            if (modeloArma3D != null) modeloArma3D.transform.localScale = escalaOriginalArma;
 
             mainCamera.fieldOfView = fovNormal;
         }
@@ -273,32 +294,24 @@ public class Weapon : MonoBehaviour
     void UpdateAmmoUI()
     {
         if (ammoText != null)
-        {
-            // Ahora lo actualiza de forma autónoma, sin depender de la escena
             ammoText.text = isReloading ? "Recargando..." : $"{currentAmmo} / {reserveAmmo}";
-        }
     }
 
     void OnDisable()
     {
-        // Si el jugador cambia de arma mientras apunta, restauramos la vista
         if (estaApuntando)
         {
             estaApuntando = false;
             if (miraOverlayUI != null) miraOverlayUI.SetActive(false);
-            if (modeloArma3D != null) modeloArma3D.transform.localScale = Vector3.one;
+            if (modeloArma3D != null) modeloArma3D.transform.localScale = escalaOriginalArma;
             if (mainCamera != null) mainCamera.fieldOfView = fovNormal;
         }
     }
-    // Hacemos que el casquillo suene medio segundo después del disparo
-    // para dar la sensación realista de que voló por el aire y cayó al suelo.
+
     IEnumerator SonidoCasquilloDelay()
     {
         yield return new WaitForSeconds(0.4f);
         if (audioSourceArma != null && sfxCasquillo != null)
-        {
-            // Le bajamos un poco el volumen (0.4f) para que no sea más fuerte que el disparo
             audioSourceArma.PlayOneShot(sfxCasquillo, 0.4f);
-        }
     }
 }

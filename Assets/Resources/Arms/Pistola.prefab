@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2801741805554187911}
   - component: {fileID: 3583092337107380067}
   - component: {fileID: 7025797391237846196}
-  - component: {fileID: 3934794728860493525}
+  - component: {fileID: 4910158064328718734}
   m_Layer: 3
   m_Name: Pistola
   m_TagString: Untagged
@@ -130,7 +130,7 @@ MonoBehaviour:
   damagePerShot: 10
   hitScanDistance: 100
   maxAmmo: 7
-  reserveAmmo: 14
+  reserveAmmo: 21
   reloadTime: 2
   esEscopeta: 0
   cantidadPerdigones: 8
@@ -144,8 +144,13 @@ MonoBehaviour:
   efectoMetal: {fileID: 2411000941336179938, guid: 54372b93e5dac2e43ae5205c7b9aa781, type: 3}
   casingParticles: {fileID: 6096141151514129835, guid: 05d732a1a38da8e42a345c4329d75036, type: 3}
   cameraTransform: {fileID: 0}
-  bulletTracer: {fileID: 0}
+  bulletTracer: {fileID: 580492771454703771, guid: b64793ddd6355f2e580c3d96d4cebbbb, type: 3}
   tracerDuration: 0.05
+  hitmarkerImage: {fileID: 0}
+  colorHit: {r: 1, g: 1, b: 1, a: 1}
+  colorKill: {r: 1, g: 0, b: 0, a: 1}
+  sfxHitmarkerNormal: {fileID: 8300000, guid: b7072bc0713fbc66fae28ba4c0b1211b, type: 3}
+  sfxHitmarkerKill: {fileID: 8300000, guid: f8a55201b69c85cafa6fceb4915a9763, type: 3}
   impactoMetal: {fileID: 5536968965748220325, guid: 5ed2707b676e3eb47b1115af5e6bb1ab, type: 3}
   impactoMadera: {fileID: 2229394018461719284, guid: 83e62217e6385384698164bf5089321b, type: 3}
   impactoPiedra: {fileID: 540619042595940169, guid: 2d32e7c7a8c3f5b4ea1caa1bfbde05a0, type: 3}
@@ -154,8 +159,8 @@ MonoBehaviour:
   impactoPorDefecto: {fileID: 540619042595940169, guid: 2d32e7c7a8c3f5b4ea1caa1bfbde05a0, type: 3}
   muzzleFlashPrefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   puntoDisparo: {fileID: 6398425351601957302}
-  audioSourceArma: {fileID: 0}
-  sfxDisparo: {fileID: 0}
+  audioSourceArma: {fileID: 4910158064328718734}
+  sfxDisparo: {fileID: 8300000, guid: 4aaec6f535b6c254199e6b2e827d470e, type: 3}
   sfxCasquillo: {fileID: 0}
 --- !u!114 &7025797391237846196
 MonoBehaviour:
@@ -179,113 +184,103 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!120 &3934794728860493525
-LineRenderer:
-  serializedVersion: 2
+--- !u!82 &4910158064328718734
+AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7351490913440744391}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 3
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
-    shadowBias: 0.5
-    generateLightingData: 0
-  m_MaskInteraction: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
-  m_ApplyActiveColorSpace: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6524054322198079017, guid: ed9e5c0ebab485a4986d3ff9b6a09ff9, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 4aaec6f535b6c254199e6b2e827d470e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 150
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8490160709498848622
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 8490160709498848622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.268, y: 0.059, z: 0.018}
+  m_LocalPosition: {x: -1.31, y: -0.49, z: 2.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

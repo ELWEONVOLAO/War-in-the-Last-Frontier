@@ -6,13 +6,13 @@ using System.Collections.Generic;
 [RequireComponent(typeof(AudioSource))]
 public class ZonaMortal : MonoBehaviourPun
 {
-    [Header("Configuración de Eventos")]
-    [Tooltip("Segundos exactos de la partida donde matará (Ej: 60, 120, 180, 240)")]
+    [Header("Configuracion de Eventos")]
+    [Tooltip("Segundos exactos de la partida donde matara (Ej: 60, 120, 180, 240)")]
     public int[] tiemposDeActivacion = { 60, 120, 180, 240 };
 
-    [Tooltip("Cuántos segundos durará encendida la trampa")]
+    [Tooltip("Cuantos segundos durara encendida la trampa")]
     public float duracionEncendida = 15f;
-    public int dañoInstakill = 9999;
+    public int daÃ±oInstakill = 9999;
 
     [Header("Audio")]
     public AudioClip sfxAlarma;
@@ -20,7 +20,7 @@ public class ZonaMortal : MonoBehaviourPun
 
     private bool zonaActiva = false;
 
-    // --- NUEVOS CRONÓMETROS DEL SERVIDOR ---
+    // --- NUEVOS CRONoMETROS DEL SERVIDOR ---
     private float tiempoOficialPartida = 0f;
     private float cronometroApagado = 0f;
 
@@ -40,13 +40,13 @@ public class ZonaMortal : MonoBehaviourPun
 
         if (!zonaActiva)
         {
-            // 1. El Host lleva el conteo exacto de los segundos desde que empezó el mapa
+            // 1. El Host lleva el conteo exacto de los segundos desde que empeza el mapa
             tiempoOficialPartida += Time.deltaTime;
 
-            // Convertimos los decimales (ej. 60.034f) a un número entero limpio (60)
+            // Convertimos los decimales (ej. 60.034f) a un numero entero limpio (60)
             int segundoActual = Mathf.FloorToInt(tiempoOficialPartida);
 
-            // 2. Revisamos si el segundo actual coincide con nuestros números mortales
+            // 2. Revisamos si el segundo actual coincide con nuestros numeros mortales
             foreach (int tiempoClave in tiemposDeActivacion)
             {
                 if (segundoActual == tiempoClave && !tiemposYaUsados.Contains(tiempoClave))
@@ -59,7 +59,7 @@ public class ZonaMortal : MonoBehaviourPun
         }
         else
         {
-            // 3. Si está encendida, contamos los 15 segundos para apagarla
+            // 3. Si esta encendida, contamos los 15 segundos para apagarla
             cronometroApagado += Time.deltaTime;
 
             if (cronometroApagado >= duracionEncendida)
@@ -80,11 +80,11 @@ public class ZonaMortal : MonoBehaviourPun
             if (sfxAlarma != null && audioSource != null)
                 audioSource.PlayOneShot(sfxAlarma);
 
-            Debug.Log(">>> LA ZONA SE ACTIVÓ POR EL RELOJ DEL HOST <<<");
+            Debug.Log(">>> LA ZONA SE ACTIVO POR EL RELOJ DEL HOST <<<");
         }
         else
         {
-            Debug.Log(">>> LA ZONA SE APAGÓ <<<");
+            Debug.Log(">>> LA ZONA SE APAGa <<<");
         }
     }
 
@@ -101,7 +101,7 @@ public class ZonaMortal : MonoBehaviourPun
 
         if (ph != null && ph.photonView.IsMine && ph.maxHealth > 0)
         {
-            ph.photonView.RPC(nameof(ph.RPC_TakeDamage), ph.photonView.Owner, dañoInstakill);
+            ph.photonView.RPC(nameof(ph.RPC_TakeDamage), ph.photonView.Owner, daÃ±oInstakill);
         }
     }
 }
