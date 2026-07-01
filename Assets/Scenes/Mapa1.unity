@@ -1628,6 +1628,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantaMineraFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 8522759062972962133, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8535125745404916631, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8943095788755361333, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1649,6 +1657,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8184541043540329557, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 899131505}
+    - targetCorrespondingSourceObject: {fileID: 4091546090446362545, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446701773}
     - targetCorrespondingSourceObject: {fileID: 8304716332466202092, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 899131510}
@@ -7860,6 +7871,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4313365750508071662, guid: 492bf266fece52242af42a22d4d583fb, type: 3}
   m_PrefabInstance: {fileID: 1063857195652385933}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1446701772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4091546090446362545, guid: f145117bdf6e28f49a1dd51cfc416a36, type: 3}
+  m_PrefabInstance: {fileID: 899131502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1446701773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446701772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05006046, y: 0.04959825, z: 0.04559999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1487227766
 GameObject:
   m_ObjectHideFlags: 0
