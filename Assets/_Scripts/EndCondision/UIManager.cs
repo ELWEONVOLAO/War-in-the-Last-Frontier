@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
     [Header("Scoreboard Settings")]
     public Transform team1Container;
     public Transform team2Container;
-
     public GameObject prefabFilaEncabezado;
     public GameObject playerRowPrefab;
     public GameObject scoreboardPanel;
@@ -36,6 +35,15 @@ public class UIManager : MonoBehaviour
     public UnityEngine.UI.Image crosshairImage;
     public Sprite[] crosshairSprites;
     public bool isGamePaused = false;
+
+    // ---> NUEVO: MUSICA DE FIN DE PARTIDA <---
+    [Header("Música de Fin de Partida")]
+    public AudioSource audioSourceMusica;
+    public AudioClip musicaVictoria;
+    public AudioClip musicaDerrota;
+    
+    // El "candado" que bloquea la interfaz al terminar
+    private bool partidaTerminada = false;
 
     private void Awake()
     {
@@ -49,7 +57,6 @@ public class UIManager : MonoBehaviour
         if (scoreboardPanel != null) scoreboardPanel.SetActive(false);
         if (pausePanel != null) pausePanel.SetActive(false);
 
-        // Bloqueamos el cursor en el centro y lo ocultamos al iniciar
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -58,19 +65,12 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        // Usamos el sistema clásico (Input) para evitar que el EventSystem intercepten las teclas.
+        // ---> NUEVO: Si la partida terminó, ignoramos todo para que no abran menús <---
+        if (partidaTerminada) return;
 
-        // Lógica del Scoreboard (Tab)
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ToggleScoreboard(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            ToggleScoreboard(false);
-        }
+        if (Input.GetKeyDown(KeyCode.Tab)) ToggleScoreboard(true);
+        else if (Input.GetKeyUp(KeyCode.Tab)) ToggleScoreboard(false);
 
-        // Lógica del Menú de Pausa (Escape)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isGamePaused && settingsPanel != null && settingsPanel.activeSelf)
@@ -78,10 +78,7 @@ public class UIManager : MonoBehaviour
                 settingsPanel.SetActive(false);
                 pausePanel.SetActive(true);
             }
-            else
-            {
-                TogglePause();
-            }
+            else TogglePause();
         }
 
         if (isGamePaused)
@@ -90,8 +87,6 @@ public class UIManager : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
-    // ── Llamados desde GameManager ───────────────────────────────
 
     public void ShowHUD()
     {
@@ -108,40 +103,61 @@ public class UIManager : MonoBehaviour
     public void UpdateTimerUI(int timeInSeconds)
     {
         if (textTimer == null) return;
-
         int minutes = timeInSeconds / 60;
         int seconds = timeInSeconds % 60;
-
         textTimer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    // ---> LA MAGIA OCURRE AQUÍ <---
     public void ShowEndScreen(int winnerTeam, int myTeam)
     {
-        HideAll();
+        // 1. Bloqueamos cualquier interacción de UI externa (pausa, scoreboard)
+        partidaTerminada = true; 
 
-        // ---> SOLUCIÓN AL BUG DEL MOUSE <---
-        // Liberamos el cursor y lo hacemos visible para que puedas clickear los botones
+        HideAll(); // Apaga el hudScreen
+
+        // 2. APAGADO FORZADO DE TODO LO DEMÁS
+        if (scoreboardPanel != null) scoreboardPanel.SetActive(false);
+        if (pausePanel != null) pausePanel.SetActive(false);
+        if (settingsPanel != null) settingsPanel.SetActive(false);
+        if (crosshairImage != null) crosshairImage.gameObject.SetActive(false);
+
+        // 3. Liberamos el cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        // 4. Detenemos cualquier música anterior por seguridad
+        if (audioSourceMusica != null) audioSourceMusica.Stop();
+
+        // 5. Mostramos la pantalla correcta y reproducimos su música
         if (winnerTeam == 0)
         {
             if (tieScreen != null) tieScreen.SetActive(true);
             if (txtWinnerName != null) txtWinnerName.text = "¡EMPATE!";
+            
+            // Sonará la música de derrota por defecto para un empate
+            if (audioSourceMusica != null && musicaDerrota != null) 
+                audioSourceMusica.PlayOneShot(musicaDerrota);
         }
         else if (winnerTeam == myTeam)
         {
             if (victoryScreen != null) victoryScreen.SetActive(true);
             if (txtWinnerName != null) txtWinnerName.text = $"¡EQUIPO {winnerTeam} GANA!";
+            
+            // ---> MÚSICA VICTORIA <---
+            if (audioSourceMusica != null && musicaVictoria != null) 
+                audioSourceMusica.PlayOneShot(musicaVictoria);
         }
         else
         {
             if (defeatScreen != null) defeatScreen.SetActive(true);
             if (txtWinnerName != null) txtWinnerName.text = $"¡EQUIPO {winnerTeam} GANA!";
+            
+            // ---> MÚSICA DERROTA <---
+            if (audioSourceMusica != null && musicaDerrota != null) 
+                audioSourceMusica.PlayOneShot(musicaDerrota);
         }
     }
-
-    // ── Lógica del Scoreboard ────────────────────────────────────
 
     public void ToggleScoreboard(bool show)
     {
@@ -154,18 +170,15 @@ public class UIManager : MonoBehaviour
 
     private void ActualizarScoreboard()
     {
-        // 1. Limpiamos los contenedores de ambos equipos
         foreach (Transform child in team1Container) Destroy(child.gameObject);
         foreach (Transform child in team2Container) Destroy(child.gameObject);
 
-        // 2. CREAMOS EL ENCABEZADO PRIMERO EN AMBAS LISTAS
         if (prefabFilaEncabezado != null)
         {
             Instantiate(prefabFilaEncabezado, team1Container);
             Instantiate(prefabFilaEncabezado, team2Container);
         }
 
-        // 3. Recorremos a todos los jugadores y los acomodamos debajo
         foreach (Photon.Realtime.Player p in PhotonNetwork.PlayerList)
         {
             int team = p.CustomProperties.ContainsKey("Team") ? (int)p.CustomProperties["Team"] : 1;
@@ -194,8 +207,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // ── Helper ───────────────────────────────────────────────────
-
     void HideAll()
     {
         if (hudScreen != null) hudScreen.SetActive(false);
@@ -203,8 +214,6 @@ public class UIManager : MonoBehaviour
         if (defeatScreen != null) defeatScreen.SetActive(false);
         if (tieScreen != null) tieScreen.SetActive(false);
     }
-
-    // ── Lógica de Pausa, Clases y Armas ──────────────────────────
 
     public void TogglePause()
     {
@@ -215,7 +224,6 @@ public class UIManager : MonoBehaviour
         if (isGamePaused)
         {
             if (settingsPanel != null) settingsPanel.SetActive(false);
-
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             if (crosshairImage != null) crosshairImage.gameObject.SetActive(false);
@@ -224,7 +232,6 @@ public class UIManager : MonoBehaviour
         else
         {
             if (settingsPanel != null) settingsPanel.SetActive(false);
-
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             if (crosshairImage != null) crosshairImage.gameObject.SetActive(true);
@@ -238,21 +245,12 @@ public class UIManager : MonoBehaviour
 
     public void BotonCambiarClase()
     {
-        if (isGamePaused)
-        {
-            TogglePause();
-        }
-
-        if (ClassSelector.LocalInstance != null)
-        {
-            ClassSelector.LocalInstance.AbrirMenuDeClases();
-        }
+        if (isGamePaused) TogglePause();
     }
 
     public void CargarCrosshairGuardada()
     {
         int index = PlayerPrefs.GetInt("CrosshairIndex", 0);
-
         if (crosshairImage != null && crosshairSprites.Length > 0 && index < crosshairSprites.Length)
         {
             crosshairImage.sprite = crosshairSprites[index];

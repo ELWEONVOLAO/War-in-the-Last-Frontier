@@ -765,6 +765,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1394474533104231652, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_text
+      value: 'War In the Last Frontier '
+      objectReference: {fileID: 0}
     - target: {fileID: 1835991187581897090, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.24975586
@@ -772,6 +776,16 @@ PrefabInstance:
     - target: {fileID: 1835991187581897090, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924653765683125587, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_text
+      value: 'Salir
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022206852310637310, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
+      propertyPath: m_text
+      value: Nickname
       objectReference: {fileID: 0}
     - target: {fileID: 2365163531401394702, guid: 4a61c502b2b5e964a8a2a4f721034f48, type: 3}
       propertyPath: m_AnchoredPosition.y

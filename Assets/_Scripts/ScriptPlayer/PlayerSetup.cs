@@ -1,31 +1,29 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections; // Necesario para el IEnumerator
 
 public class PlayerSetup : MonoBehaviourPun
 {
-    [Header("Componentes a desactivar en enemigos")]
-    [Tooltip("La cámara de este jugador")]
     public Camera camaraJugador;
-    
-    [Tooltip("El Audio Listener (usualmente está en el mismo objeto que la cámara)")]
     public AudioListener audioListenerJugador;
 
-    void Start()
+    // Cambiamos Start por un IEnumerator para esperar a que Photon esté listo
+    IEnumerator Start()
     {
-        // Si este jugador NO es el nuestro (es el avatar de alguien más en la red)
-        if (!photonView.IsMine)
-        {
-            // Le apagamos la cámara para no ver a través de sus ojos
-            if (camaraJugador != null)
-            {
-                camaraJugador.enabled = false;
-            }
+        // Esperamos un frame para asegurar que PhotonView tenga los datos de red
+        yield return new WaitForSeconds(0.1f);
 
-            // Le apagamos los oídos para que no cause el error de "2 Audio Listeners"
-            if (audioListenerJugador != null)
-            {
-                audioListenerJugador.enabled = false;
-            }
+        if (photonView.IsMine)
+        {
+            // Eres tú: mantén todo encendido
+            if (camaraJugador != null) camaraJugador.enabled = true;
+            if (audioListenerJugador != null) audioListenerJugador.enabled = true;
+        }
+        else
+        {
+            // Eres un enemigo: apaga cámaras y oídos
+            if (camaraJugador != null) camaraJugador.enabled = false;
+            if (audioListenerJugador != null) audioListenerJugador.enabled = false;
         }
     }
 }
