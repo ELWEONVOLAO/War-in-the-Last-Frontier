@@ -1370,6 +1370,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3308585510368695500, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3583092337107380067, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
       propertyPath: maxAmmo
       value: 5
@@ -1398,6 +1402,21 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 6163705433182997513}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 3583092337107380067, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+      propertyPath: muzzleFlashPrefab
+      value: 
+      objectReference: {fileID: 2742695358358069611}
+    - target: {fileID: 3583092337107380067, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+      propertyPath: fogonazoParticulas
+      value: 
+      objectReference: {fileID: 2654439283250535935}
+    - target: {fileID: 6223579898296779593, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 7351490913440744391, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
       propertyPath: m_Name
       value: Franco
@@ -1412,9 +1431,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< Updated upstream
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7351490913440744391, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 809556747423729082, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2872074143112010697}
+    - targetCorrespondingSourceObject: {fileID: 5399327747007359318, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
+>>>>>>> Stashed changes
       insertIndex: -1
       addedObject: {fileID: 170786978503159001}
   m_SourcePrefab: {fileID: 100100000, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
@@ -1428,8 +1455,92 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7351490913440744391, guid: 117e3df8c308da84fbd7a021bb0da19f, type: 3}
   m_PrefabInstance: {fileID: 2279799764308452817}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!120 &170786978503159001
 LineRenderer:
+=======
+--- !u!1001 &2328661492431060002
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1486018947733626987}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7085761
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.015905378
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70527416
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.015979841
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.732
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 2.584
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+      propertyPath: m_Name
+      value: Francotirador (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+--- !u!4 &2872074143112010697 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51abf2ce66e9a4d42a0faac34a5c59f5, type: 3}
+  m_PrefabInstance: {fileID: 2328661492431060002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2744437511811367077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+>>>>>>> Stashed changes
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
